@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="/assets/frontend/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/elegant-icons.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/jquery-ui.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/frontend/css/style.css" type="text/css">
+  
+
+  <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
+  <title>Ogani | Template
+    {% block title %}
+    {% endblock %}
+  </title>
+  <!-- End block title -->
+
+  <!-- Block custom-styles - Đục lỗ trên giao diện bố cục chung, đặt tên là `custom-styles` -->
+  {% block customstyles %}
+  {% endblock %}
+  <!-- End block custom-styles -->
+</head>
+
+<body>
+  <!-- header -->
+  {{ include('frontend/layouts/includes/header.html.twig') }}
+  <!-- end header -->
+  <main role="main">
+    <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+    {% block content %}
+    {% endblock %}
+    <!-- End block content -->
+  </main>
+
+  <!-- footer -->
+  {{ include('frontend/layouts/includes/footer.html.twig') }}
+  <!-- end footer -->
+
+  <!-- Js Plugins -->
+  <script src="/assets/frontend/js/jquery-3.3.1.min.js"></script>
+  <script src="/assets/frontend/js/bootstrap.min.js"></script>
+  <script src="/assets/frontend/js/jquery.nice-select.min.js"></script>
+  <script src="/assets/frontend/js/jquery-ui.min.js"></script>
+  <script src="/assets/frontend/js/jquery.slicknav.js"></script>
+  <script src="/assets/frontend/js/mixitup.min.js"></script>
+  <script src="/assets/frontend/js/owl.carousel.min.js"></script>
+  <script src="/assets/frontend/js/main.js"></script>
+
+
+  <!-- Block custom-scripts - Đục lỗ trên giao diện bố cục chung, đặt tên là `custom-scripts` -->
+  {% block customscripts %}
+  {% endblock %}
+  <!-- End block custom-scripts -->
+</body>
+
+</html>

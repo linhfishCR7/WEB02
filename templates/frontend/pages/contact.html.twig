@@ -1,0 +1,119 @@
+{# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+{# Nội dung trong block title #}
+{% block title %}
+Liên hệ
+{% endblock %}
+{# End Nội dung trong block title #}
+{# Nội dung trong block headline #}
+{% block headline %}
+Liên hệ
+{% endblock %}
+{# End Nội dung trong block headline #}
+{# Nội dung trong block content #}
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/assets/frontend/img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Contact Us</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/frontend/index.php">Home</a>
+                        <span>Contact Us</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Contact Section Begin -->
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_phone"></span>
+                    <h4>Phone</h4>
+                    <p>+84 342878 767</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_pin_alt"></span>
+                    <h4>Address</h4>
+                    <p>3/2 Ninh Kiều CT</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_clock_alt"></span>
+                    <h4>Open time</h4>
+                    <p>10:00 am to 23:00 pm</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_mail_alt"></span>
+                    <h4>Email</h4>
+                    <p>havanlinh19042000@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+<!-- Map Begin -->
+<div class="map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.966647295685!2d105.75542101479438!3d10.019610992837746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a088482fb773f7%3A0x6b3fac9bccaf9430!2zxJDGsOG7nW5nIDMtMiwgTmluaCBLaeG7gXUsIEPhuqduIFRoxqE!5e0!3m2!1svi!2s!4v1591844432872!5m2!1svi!2s"
+        height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div class="map-inside">
+        <i class="icon_pin"></i>
+        <div class="inside-widget">
+            <h4>Cần Thơ</h4>
+            <ul>
+                <li>Phone: +84 342878 767</li>
+                <li>Add: 3/2 Ninh Kiều CT</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>Leave Message</h2>
+                </div>
+            </div>
+        </div>
+        <form  method="POST" action="/frontend/pages/contact.php">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" id="title" name="title" placeholder="Your title">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="email" id="email" name="email" placeholder="Your Email">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <textarea name="message" placeholder="Your message"></textarea>
+                    <button  name="btnGoiLoiNhan" class="site-btn">SEND MESSAGE</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact Form End -->
+{% endblock %}
+{# End Nội dung trong block content #}
+{% block customscripts %}
+{% endblock %}
+   

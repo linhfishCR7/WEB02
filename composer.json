@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twig/twig": "^2.12",
+        "symfony/var-dumper": "^3.4",
+        "phpmailer/phpmailer": "^6.1"
+    }
+}
