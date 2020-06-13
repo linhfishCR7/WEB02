@@ -1,0 +1,78 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Danh sách Loại sản phẩm
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Danh sách Nhà Sản Xuất
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
+<div class="span8">
+<div class="row-fluid">
+    <!-- block -->
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">NHÀ SẢN XUẤT</div>
+        </div>
+        <div class="block-content collapse in">
+            <div class="span12">
+               <div class="table-toolbar">
+                  <div class="btn-group">
+                     <a href="/backend/nhasanxuat/create.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  </div>
+                  <div class="btn-group pull-right">
+                     <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Print</a></li>
+                        <li><a href="#">Save as PDF</a></li>
+                        <li><a href="#">Export to Excel</a></li>
+                     </ul>
+                  </div>
+               </div>
+                
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
+                    <thead>
+                        <tr>
+                            <th>Mã nhà sản xuất</th>
+                            <th>Tên nhà sản xuất</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nhasanxuat in ds_nhasanxuat %}
+                        <tr class="odd gradeX">
+                            <td>{{ nhasanxuat.nsx_ma }}</td>
+                            <td>{{ nhasanxuat.nsx_ten }}</td>
+                            <td class="center">
+                                <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `lsp_ma` -->
+                                <a href="edit.php?nsx_ma={{ nhasanxuat.nsx_ma }}" class="btn btn-warning">
+                                    <span data-feather="edit"></span> Sửa
+                                </a>
+                
+                                <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `nsx_ma` -->
+                                <a href="delete.php?nsx_ma={{ nhasanxuat.nsx_ma }}" class="btn btn-danger">
+                                    <span data-feather="delete"></span> Xóa
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /block -->
+</div>
+</div>
+
+{% endblock %}
+{# End Nội dung trong block content #}
