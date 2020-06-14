@@ -144,13 +144,49 @@
             <div class="span3" id="sidebar">
                 <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                     <li class="active">
-                        <a href="index.html"><i class="icon-chevron-right"></i> Dashboard</a>
+                        <a href="/backend/pages/dashboard.php"><i class="icon-chevron-right"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="/backend/calendar.php"><i class="icon-chevron-right"></i> Calendar</a>
                     </li>
-                    <li>
-                        <a href="stats.html"><i class="icon-chevron-right"></i> Statistics (Charts)</a>
+                    <li class="dropdown">
+                        <a href="stats.html" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-right"></i>Cập nhật bảng dữ liệu</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a tabindex="-1" href="/backend/nhasanxuat/index.php">Nhà Sản Xuất</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/loaisanpham/index.php">Loại Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/sanpham/index.php">Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/hinhsanpham/index.php">Hình Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/sanpham_dondathang/index.php">Sản Phẩm Đơn Đặt Hàng</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/khachhang/index.php">Khách Hàng</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/khuyenmai/index.php">Khuyến Mãi</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/dondathang/index.php">Đơn Đặt Hàng</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/hinhthucthanhtoan/index.php">Hình Thức Thanh Toán</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/chudegopy/index.php">Chủ Đề Góp Ý</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="/backend/gopy/index.php">Góp Ý</a>
+                            </li>
+                            
+                        </ul>
                     </li>
                     <li>
                         <a href="form.html"><i class="icon-chevron-right"></i> Forms</a>
@@ -242,131 +278,6 @@
         <script src="/assets/vendor/jquery-ui-1.10.3.js"></script>
         <script src="/assets/vendor/fullcalendar/fullcalendar.js"></script>
         <script src="/assets/vendor/fullcalendar/gcal.js"></script>
-<!-- calendar -->
-        <script>
-            $(function() {
-                // Easy pie charts
-                var calendar = $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'month,basicWeek,basicDay'
-                },
-                selectable: true,
-                selectHelper: true,
-                select: function(start, end, allDay) {
-                    var title = prompt('Event Title:');
-                    if (title) {
-                        calendar.fullCalendar('renderEvent',
-                            {
-                                title: title,
-                                start: start,
-                                end: end,
-                                allDay: allDay
-                            },
-                            true // make the event "stick"
-                        );
-                    }
-                    calendar.fullCalendar('unselect');
-                },
-                droppable: true, // this allows things to be dropped onto the calendar !!!
-                drop: function(date, allDay) { // this function is called when something is dropped
-                
-                    // retrieve the dropped element's stored Event Object
-                    var originalEventObject = $(this).data('eventObject');
-                    
-                    // we need to copy it, so that multiple events don't have a reference to the same object
-                    var copiedEventObject = $.extend({}, originalEventObject);
-                    
-                    // assign it the date that was reported
-                    copiedEventObject.start = date;
-                    copiedEventObject.allDay = allDay;
-                    
-                    // render the event on the calendar
-                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-                    
-                    // is the "remove after drop" checkbox checked?
-                    if ($('#drop-remove').is(':checked')) {
-                        // if so, remove the element from the "Draggable Events" list
-                        $(this).remove();
-                    }
-                    
-                },
-                editable: true,
-                // US Holidays
-                events: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'
-                
-                });
-            });
-    
-            $('#external-events div.external-event').each(function() {
-            
-                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-                // it doesn't need to have a start or end
-                var eventObject = {
-                    title: $.trim($(this).text()) // use the element's text as the event title
-                };
-                
-                // store the Event Object in the DOM element so we can get to it later
-                $(this).data('eventObject', eventObject);
-                
-                // make the event draggable using jQuery UI
-                $(this).draggable({
-                    zIndex: 999999999,
-                    revert: true,      // will cause the event to go back to its
-                    revertDuration: 0  //  original position after the drag
-                });
-                
-            });
-            </script>
-        <script>
-//form
-        jQuery(document).ready(function() {   
-        FormValidation.init();
-        });
-        
-
-            $(function() {
-                $(".datepicker").datepicker();
-                $(".uniform_on").uniform();
-                $(".chzn-select").chosen();
-                $('.textarea').wysihtml5();
-
-                $('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
-                    var $total = navigation.find('li').length;
-                    var $current = index+1;
-                    var $percent = ($current/$total) * 100;
-                    $('#rootwizard').find('.bar').css({width:$percent+'%'});
-                    // If it's the last tab then hide the last button and show the finish instead
-                    if($current >= $total) {
-                        $('#rootwizard').find('.pager .next').hide();
-                        $('#rootwizard').find('.pager .finish').show();
-                        $('#rootwizard').find('.pager .finish').removeClass('disabled');
-                    } else {
-                        $('#rootwizard').find('.pager .next').show();
-                        $('#rootwizard').find('.pager .finish').hide();
-                    }
-                }});
-                $('#rootwizard .finish').click(function() {
-                    alert('Finished!, Starting over!');
-                    $('#rootwizard').find("a[href*='tab1']").trigger('click');
-                });
-            });
-            </script>
-    
-            <script>
-            $(function() {
-                
-            });
-        </script>
-
-        <script>
-            $(function() {
-                // Easy pie charts
-                $('.chart').easyPieChart({animate: 1000});
-            });
-        </script>
+        <script src="/assets/backend/js/JS.js"></script>
 </body>
-
 </html>

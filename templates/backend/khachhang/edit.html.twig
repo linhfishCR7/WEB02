@@ -1,0 +1,61 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Chỉnh sửa hình thức thanh toán
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Chỉnh sửa hình thức thanh toán
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+
+<div class="span9" id="content">
+<div class="row-fluid">
+    <!-- block -->
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Form Example</div>
+        </div>
+        <div class="block-content collapse in">
+            <div class="span12">
+                 <form class="form-horizontal" name="frmHinhThucThanhToan" id="frmHinhThucThanhToan" method="post" action="/backend/hinhthucthanhtoan/edit.php?httt_ma={{ hinhthucthanhtoan.httt_ma }}">
+                  <fieldset>
+                    <legend>Form Horizontal</legend>
+                    <div class="control-group success">
+                        <label class="control-label" for="httt_ma">Mã hình thức thanh toán</label>
+                        <div class="controls">
+                          <input type="text" id="httt_ma" name="httt_ma" placeholder="Mã hình thức thanh toán" readonly value="{{ hinhthucthanhtoan.httt_ma }}">
+                          <!-- <span class="help-inline">Woohoo!</span> -->
+                        </div>
+                      </div>
+                    <div class="control-group warning">
+                      <label class="control-label" for="httt_ten">Tên hình thức thanh toán</label>
+                      <div class="controls">
+                        <input type="text" id="httt_ten" name="httt_ten" placeholder="Tên hình thức thanh toán" value="{{ hinhthucthanhtoan.httt_ten }}">
+                        <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                      </div>
+                    </div>
+                   
+
+                    <div class="form-actions">
+                      <button  class="btn btn-primary" name="btnSave">Save changes</button>
+                      <button  class="btn" name="btnCancel">Cancel</button>
+                    </div>
+                  </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- /block -->
+</div>
+</div>
+{% endblock %}
+{# End Nội dung trong block content #}
