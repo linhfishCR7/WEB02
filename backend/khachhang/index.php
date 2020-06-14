@@ -29,6 +29,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
             );  //vd: '2019-05-10'
     }
     $data[] = array(
+        'kh_ma' => $row['kh_ma'],
         'kh_tendangnhap' => $row['kh_tendangnhap'],
         'kh_matkhau' => $row['kh_matkhau'],
         'kh_ten' => $row['kh_ten'],

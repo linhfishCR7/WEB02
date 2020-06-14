@@ -38,6 +38,8 @@ if(isset($_POST['btnDangKy']))
      // Đóng kết nối
     mysqli_close($conn);
     echo 'Đăng ký thành công!';
+    header('location:/frontend/index.php');
+
     // Gởi mail kích hoạt tài khoản
     $mail = new PHPMailer(true);                               // Passing `true` enables exceptions
     try {
@@ -79,7 +81,7 @@ if(isset($_POST['btnDangKy']))
         <table>
             <tr>
                 <td><h1 style="color: red; font-size: 16px; text-align: center;">TRANG BÁN HÀNG OGANI</h1>
-                    <img src="https://nentang.vn/wp-content/uploads/2019/06/logo-nentang.jpg" width="300px" height="150px" />
+                    <img src="https://linhfish.xyz/assets/frontend/img/logo.png" width="300px" height="150px" />
                 </td>
             </tr>
             <tr>

@@ -41,8 +41,8 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         'sp_ma' => $row['sp_ma'],
         'sp_ten' => $row['sp_ten'],
         // Sử dụng hàm number_format(số tiền, số lẻ thập phân, dấu phân cách số lẻ, dấu phân cách hàng nghìn) để định dạng số khi hiển thị trên giao diện. Vd: 15800000 -> format thành 15,800,000.66 vnđ
-        'sp_gia' => number_format($row['sp_gia'], 2, ".", ",") . ' vnđ',
-        'sp_giacu' => number_format($row['sp_giacu'], 2, ".", ",") . ' vnđ',
+        'sp_gia' =>  '$ '.number_format($row['sp_gia'], 2, ".", ",") ,
+        'sp_giacu' => '$ '.number_format($row['sp_giacu'], 2, ".", ",") ,
         'sp_mota_ngan' => $row['sp_mota_ngan'],
         'sp_mota_chitiet' => $row['sp_mota_chitiet'],
         'sp_ngaycapnhat' => date('d/m/Y H:i:s', strtotime($row['sp_ngaycapnhat'])),
