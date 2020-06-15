@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Thêm mới Sản phẩm
+Thêm mới đơn đặt hàng
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Thêm mới Sản phẩm
+Thêm mới đơn đặt hàng
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -24,111 +24,72 @@ Thêm mới Sản phẩm
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
-                     <form class="form-horizontal" name="frmLoaiSanPham" id="frmLoaiSanPham" method="post" action="/backend/sanpham/edit.php?sp_ma={{ sanpham.sp_ma }}">
+                     <form class="form-horizontal" name="frmDonDatHang" id="frmDonDatHang" method="post" action="/backend/dondathang/edit.php?dh_ma={{ dondathang.dh_ma }}">
                       <fieldset>
                         <legend>Form Horizontal</legend>
                         <div class="control-group success">
-                            <label class="control-label" for="sp_ma">Mã loại sản phẩm</label>
+                            <label class="control-label" for="dh_ma">Mã đơn đặt hàng</label>
                             <div class="controls">
-                            <input type="text" id="sp_ma" name="sp_ma" placeholder="Mã Sản phẩm"  readonly value="{{ sanpham.sp_ma }}">
+                            <input type="text" id="dh_ma" name="dh_ma" placeholder="Mã đơn đặt hàng"  readonly value="{{ dondathang.dh_ma }}">
                             <!-- <span class="help-inline">Woohoo!</span> -->
                             </div>
                         </div>
 
                         <div class="control-group warning">
-                            <label class="control-label" for="sp_ten">Tên sản phẩm</label>
+                            <label class="control-label" for="dh_ngaylap">Ngày lập</label>
                             <div class="controls">
-                            <input type="text" id="sp_ten" name="sp_ten" placeholder="Tên Sản phẩm" value="{{ sanpham.sp_ten }}">
+                            <input type="text" id="dh_ngaylap" name="dh_ngaylap" placeholder="Ngày lập" value="{{ dondathang.dh_ngaylap}}">
                             <!-- <span class="help-inline">Something may have gone wrong</span> -->
                             </div>
                         </div>
 
                         <div class="control-group warning">
-                            <label class="control-label" for="sp_gia">Giá Sản phẩm</label>
+                            <label class="control-label" for="dh_ngaygiao">Ngày giao</label>
                             <div class="controls">
-                            <input type="text" id="sp_gia" name="sp_gia" placeholder="Giá Sản phẩm" value="{{ sanpham.sp_gia }}">
+                            <input type="text" id="dh_ngaygiao" name="dh_ngaygiao" placeholder="Ngày giao" value="{{ dondathang.dh_ngaygiao }}">
                             <!-- <span class="help-inline">Something may have gone wrong</span> -->
                             </div>
                         </div>
 
                         <div class="control-group warning">
-                            <label class="control-label" for="sp_giacu">Giá cũ Sản phẩm</label>
+                            <label class="control-label" for="dh_noigiao">Nơi giao</label>
                             <div class="controls">
-                            <input type="text" id="sp_giacu" name="sp_giacu" placeholder="Giá cũ Sản phẩm" value="{{ sanpham.sp_giacu }}">
+                            <input type="text" id="dh_noigiao" name="dh_noigiao" placeholder="Nơi giao" value="{{ dondathang.dh_noigiao }}">
                             <!-- <span class="help-inline">Something may have gone wrong</span> -->
                             </div>
                         </div>
                     
                         <div class="control-group warning">
-                            <label class="control-label" for="sp_mota_ngan">Mô tả ngắn</label>
+                            <label class="control-label" for="dh_trangthaithanhtoan">Trạng thái thanh toán</label>
                             <div class="controls">
-                            <input type="text" id="sp_mota_ngan" name="sp_mota_ngan" placeholder="Mô tả ngắn Sản phẩm" value="{{ sanpham.sp_mota_ngan }}">
+                            <input type="text" id="dh_trangthaithanhtoan" name="dh_trangthaithanhtoan" placeholder="Trạng thái thanh toán" value="{{ dondathang.dh_trangthaithanhtoan }}">
                             <!-- <span class="help-inline">Something may have gone wrong</span> -->
                             </div>
                         </div>
 
-                        <div class="control-group warning">
-                            <label class="control-label" for="sp_mota_chitiet">Mô tả chi tiết</label>
-                            <div class="controls">
-                            <input type="text" id="sp_mota_chitiet" name="sp_mota_chitiet" placeholder="Mô tả chi tiết Sản phẩm" value="{{ sanpham.sp_mota_chitiet }}">
-                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
-                            </div>
-                        </div>
-
-                        <div class="control-group warning">
-                            <label class="control-label" for="sp_ngaycapnhat">Ngày cập nhật</label>
-                            <div class="controls">
-                            <input type="text" id="sp_ngaycapnhat" name="sp_ngaycapnhat" placeholder="Ngày cập nhật Sản phẩm" value="{{ sanpham.sp_ngaycapnhat }}">
-                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
-                            </div>
-                        </div>
-
-                        <div class="control-group warning">
-                            <label class="control-label" for="sp_soluong">Số lượng</label>
-                            <div class="controls">
-                            <input type="text" id="sp_soluong" name="sp_soluong" placeholder="Số lượng Sản phẩm" value="{{ sanpham.sp_soluong }}">
-                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
-                            </div>
-                        </div>
                         <div class="control-group success">
-                            <label for="lsp_ma" class="control-label">Loại sản phẩm</label>
+                            <label for="httt_ma" class="control-label">Hình thức thanh toán</label>
                             <div class="controls">
-                                <select class="form-control" id="lsp_ma" name="lsp_ma">
-                                    {% for loaisanpham in ds_loaisanpham %}
-                                        {% if loaisanpham.lsp_ma == sanpham.lsp_ma %}
-                                        <option value="{{ loaisanpham.lsp_ma }}" selected>{{ loaisanpham.lsp_ten }}</option>
+                                <select class="form-control" id="httt_ma" name="httt_ma">
+                                    {% for hinhthucthanhtoan in ds_HTTT %}
+                                   {% if hinhthucthanhtoan.httt_ma == dondathang.httt_ma %}
+                                        <option value="{{ hinhthucthanhtoan.httt_ma }}" selected>{{ hinhthucthanhtoan.httt_ten }}</option>
                                         {% else %}
-                                        <option value="{{ loaisanpham.lsp_ma }}">{{ loaisanpham.lsp_ten }}</option>
+                                        <option value="{{ hinhthucthanhtoan.httt_ma }}">{{ hinhthucthanhtoan.httt_ten }}</option>
                                         {% endif %}
                                     {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="control-group success">
-                            <label for="nsx_ma" class="control-label">Nhà sản xuất</label>
+                            <label for="kh_ma" class="control-label">Khách hàng</label>
                             <div class="controls">
-                                <select class="form-control" id="nsx_ma" name="nsx_ma">
-                                    {% for nhasanxuat in ds_nhasanxuat %}
-                                        {% if nhasanxuat.nsx_ma == sanpham.nsx_ma %}
-                                        <option value="{{ nhasanxuat.nsx_ma }}" selected>{{ nhasanxuat.nsx_ten }}</option>
+                                <select class="form-control" id="kh_ma" name="kh_ma">
+                                    {% for khachhang in ds_KhachHang %}
+                                   {% if khachhang.kh_ma == dondathang.kh_ma %}
+                                        <option value="{{ khachhang.kh_ma }}" selected>{{ khachhang.kh_ten }}</option>
                                         {% else %}
-                                        <option value="{{ nhasanxuat.nsx_ma }}">{{ nhasanxuat.nsx_ten }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="control-group success">
-                            <label for="km_ma" class="control-label">Khuyến mãi</label>
-                            <div class="controls">
-                                <select class="form-control" id="km_ma" name="km_ma">
-                                    <option value="">Không áp dụng khuyến mãi</option>
-                                    {% for khuyenmai in ds_khuyenmai %}
-                                        {% if khuyenmai.km_ma == sanpham.km_ma %}
-                                        <option value="{{ khuyenmai.km_ma }}" selected>{{ khuyenmai.km_tomtat }}</option>
-                                        {% else %}
-                                        <option value="{{ khuyenmai.km_ma }}">{{ khuyenmai.km_tomtat }}</option>
+                                        <option value="{{ khachhang.kh_ma }}">{{ khachhang.kh_ten }}</option>
                                         {% endif %}
                                     {% endfor %}
                                 </select>

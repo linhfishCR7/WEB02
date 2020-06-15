@@ -67,7 +67,7 @@ if(isset($_POST['btnSave']))
     $httt_ma = $_POST['httt_ma'];
     $kh_ma = $_POST['kh_ma'];
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `dondathang` (dh_ngaylap, dh_ngaygiao, dh_noigiao, dh_trangthaithanhtoan, httt_ma, kh_ma) VALUES ('$dh_ngaylap', $dh_ngaygiao, $dh_noigiao, '$dh_trangthaithanhtoan', '$httt_ma', '$kh_ma');";
+    $sql = "INSERT INTO `dondathang` (dh_ngaylap, dh_ngaygiao, dh_noigiao, dh_trangthaithanhtoan, httt_ma, kh_ma) VALUES ('$dh_ngaylap', '$dh_ngaygiao', '$dh_noigiao', $dh_trangthaithanhtoan, $httt_ma, $kh_ma);";
     
     // Thực thi INSERT
     mysqli_query($conn, $sql);
