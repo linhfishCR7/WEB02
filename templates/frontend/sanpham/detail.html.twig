@@ -1,0 +1,276 @@
+ {# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+{# Nội dung trong block title #}
+{% block title %}
+Sản phẩm {{ sanpham.sp_ten }}
+{% endblock %}
+{# End Nội dung trong block title #}
+{# Nội dung trong block headline #}
+{% block headline %}
+Sản phẩm {{ sanpham.sp_ten }}
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+
+ <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/frontend/img/breadcrumb.jpg">
+        <div class="container">
+        {% set hinhsanphamdautien = sanpham.danhsachhinhanh|first %}
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Product Detail</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/frontend/index.php">Home</a>
+                            {# <a href="./index.html">Vegetables</a> #}
+                            <span>{{ sanpham.lsp_ten }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"action="/frontend/giohang/themvaogiohang">
+                {# {% set hinhsanphamdautien = sanpham.danhsachhinhanh|first %} #}
+                <input type="hidden" name="sp_ma" id="sp_ma" value="{{ sanpham.sp_ma }}" />
+                <input type="hidden" name="sp_ten" id="sp_ten" value="{{ sanpham.sp_ten }}" />
+                <input type="hidden" name="sp_gia" id="sp_gia" value="{{ sanpham.sp_gia }}" />
+                <input type="hidden" name="hinhdaidien" id="hinhdaidien"
+                    value="{{ hinhsanphamdautien.hsp_tentaptin }}" />
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        {% if sanpham.danhsachhinhanh|length > 0 %}
+                        <div class="product__details__pic">
+                            <div class="product__details__pic__item " {{ (hinhsanpham == hinhsanphamdautien) ? 'active' : '' }}>
+                                <img class="product__details__pic__item--large"
+                                    src="/assets/uploads/{{ hinhsanphamdautien.hsp_tentaptin }}" alt="" style="height:500px;width:500px">
+                            </div>
+                           
+                            <div class="product__details__pic__slider owl-carousel " {{ (hinhsanpham == hinhsanphamdautien) ? 'active' : '' }} >
+                                 {% for hinhsanpham in sanpham.danhsachhinhanh %}
+                                <img data-imgbigurl="/assets/uploads/{{ hinhsanpham.hsp_tentaptin }}"
+                                    src="/assets/uploads/{{ hinhsanpham.hsp_tentaptin }}" alt="" style="height:100px;width:150px">
+                            {% endfor %}
+                            </div>
+                            
+                        </div>
+                        {% else %}
+                        <div class="product__details__pic">
+
+                            <div class="product__details__pic__item">
+                                <img class="product__details__pic__item--large"
+                                     src="/assets/shared/img/default-image_600.png" alt="" />
+                            </div>
+                            
+                            <div class="product__details__pic__slider owl-carousel">
+                                <img data-imgbigurl="/assets/shared/img/default-image_600.png"
+                                   src="/assets/shared/img/default-image_600.png" alt="" />
+                            </div>
+                            
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="product__details__text">
+                            <h3>{{ sanpham.sp_ten }}</h3>
+                            <div class="product__details__rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span>review({{ sanpham.review }})</span>
+                            </div>
+                            <div class="product__details__price">{{ sanpham.sp_gia_formated }}</div>
+                            <p>{{ sanpham.sp_mota_chitiet }}</p>
+                            <div class="product__details__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" id="soluong" name="soluong" >
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="primary-btn" id="btnThemVaoGioHang">ADD TO CARD</a>
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <ul>
+                                <li><b>Availability</b> <span>{{ sanpham.sp_availability }}</span></li>
+                                <li><b>Shipping</b> <span>{{ sanpham.sp_shipping}}</span></li>
+                                <li><b>Weight</b> <span>{{ sanpham.sp_khoiluong }}</span></li>
+                                <li><b>Share on</b>
+                                    <div class="share">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="product__details__tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                        aria-selected="true">Description</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                        aria-selected="false">Information</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                        aria-selected="false">Reviews <span>({{ sanpham.review }})</span></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <div class="product__details__tab__desc">
+                                        <h6>Products Infomation</h6>
+                                        <p>{{ sanpham.sp_mota_ngan }}</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                    <div class="product__details__tab__desc">
+                                        <h6>Products Infomation</h6>
+                                        <p>{{ sanpham.sp_mota_chitiet }}</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                    <div class="product__details__tab__desc">
+                                        <h6>Products Infomation</h6>
+                                        <p>{{ sanpham.rv_noidung }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+    <!-- Related Product Section Begin -->
+    {# <section class="related-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related__product__title">
+                        <h2>Related Product</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> #}
+    {# End Nội dung trong block content #}
+{% endblock %}
+{% block customscripts %}
+        <script>
+            function addSanPhamVaoGioHang() {
+                var dulieugoi = {
+                    sp_ma: $('#sp_ma').val(),
+                    sp_ten: $('#sp_ten').val(),
+                    sp_gia: $('#sp_gia').val(),
+                    hinhdaidien: $('#hinhdaidien').val(),
+                    soluong: $('#soluong').val(),
+                };
+                console.log((dulieugoi));
+                $.ajax({
+                    url: '/frontend/ajax/giohang-themsanpham-ajax',
+                    method: "POST",
+                    dataType: 'json',
+                    data: dulieugoi,
+                    success: function (data) {
+                        console.log(data);
+                        var htmlString =
+                            `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/frontend/thanhtoan/giohang">Xem Giỏ hàng</a>.`;
+                        $('#thongbao').html(htmlString);
+                        // Hiện thông báo
+                        $('.alert').removeClass('d-none').addClass('show');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                        var htmlString = `<h1>Không thể xử lý</h1>`;
+                        $('#thongbao').html(htmlString);
+                        // Hiện thông báo
+                        $('.alert').removeClass('d-none').addClass('show');
+                    }
+                });
+            };
+            $('#btnThemVaoGioHang').click(function (event) {
+                event.preventDefault();
+                addSanPhamVaoGioHang();
+            });
+        </script>
+{% endblock %}
