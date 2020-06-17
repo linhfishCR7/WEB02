@@ -12,6 +12,7 @@ $sqlDanhSachSanPham = <<<EOT
     JOIN `loaisanpham` lsp ON sp.lsp_ma = lsp.lsp_ma
     LEFT JOIN `hinhsanpham` hsp ON sp.sp_ma = hsp.sp_ma
     GROUP BY sp.sp_ma, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_mota_ngan, sp.sp_soluong, lsp.lsp_ten
+
 EOT;
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sqlDanhSachSanPham);
@@ -32,11 +33,45 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         'hsp_tentaptin' => $row['hsp_tentaptin'],
     );
 }
-//var_dump($dataDanhSachSanPham);die;
+// top lasest product
+
+$sqlDanhSachSanPhamLastest = <<<EOT
+        SELECT sp.sp_ma, sp.sp_ten, sp.sp_gia, lsp.lsp_ten, MAX(hsp.hsp_tentaptin) AS hsp_tentaptin
+        FROM `sanpham` sp
+        JOIN `loaisanpham` lsp ON sp.lsp_ma = lsp.lsp_ma
+        LEFT JOIN `hinhsanpham` hsp ON sp.sp_ma = hsp.sp_ma
+        GROUP BY sp.sp_ma, sp.sp_ten, sp.sp_gia, lsp.lsp_ten
+        ORDER BY sp.sp_ma ASC
+        LIMIT  3
+
+EOT;
+// 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
+$resultDanhSachSanPhamLastest = mysqli_query($conn, $sqlDanhSachSanPhamLastest);
+// 4. Khi thực thi các truy vấn dạng SELECT, dữ liệu lấy về cần phải phân tích để sử dụng
+// Thông thường, chúng ta sẽ sử dụng vòng lặp while để duyệt danh sách các dòng dữ liệu được SELECT
+// Ta sẽ tạo 1 mảng array để chứa các dữ liệu được trả về
+$dataDanhSachSanPhamLastest = [];
+while($row = mysqli_fetch_array($resultDanhSachSanPhamLastest, MYSQLI_ASSOC))
+{
+    $dataDanhSachSanPhamLastest[] = array(
+        'sp_ma' => $row['sp_ma'],
+        'sp_ten' => $row['sp_ten'],
+        'sp_gia' => number_format($row['sp_gia'], 2, ".", ",") . ' vnđ',
+        'lsp_ten' => $row['lsp_ten'],
+        'hsp_tentaptin' => $row['hsp_tentaptin'],
+    );
+}
+
+
+
+
+// var_dump($dataDanhSachSanPhamLastest);die;
 // print_r($dataDanhSachSanPham);die;
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `frontend/pages/home.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên
 echo $twig->render('frontend/pages/home.html.twig', [
     'danhsachsanpham' => $dataDanhSachSanPham
+, 
+    'danhsachsanphamLastest' => $dataDanhSachSanPhamLastest
 ]);
 ?>

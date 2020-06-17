@@ -140,14 +140,14 @@ Trang chủ
         <div class="row featured__filter">
             {% for sanpham in danhsachsanpham %}
 
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix {{ sanpham.lsp_ten }}">
                 <div class="featured__item">
                     {% if sanpham.hsp_tentaptin %}
 
                     <div class="featured__item__pic set-bg" data-setbg="/assets/uploads/{{ sanpham.hsp_tentaptin }}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="/frontend/sanpham/detail.php?sp_ma={{ sanpham.sp_ma }}"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="/frontend/sanpham/detail.php?sp_ma={{ sanpham.sp_ma }}"><i class="fa fa-info-circle"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
@@ -155,7 +155,7 @@ Trang chủ
                     <div class="featured__item__pic set-bg" data-setbg="/assets/shared/img/default-image_600.png">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="/frontend/sanpham/detail.php?sp_ma={{ sanpham.sp_ma }}"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="/frontend/sanpham/detail.php?sp_ma={{ sanpham.sp_ma }}"><i class="fa fa-info-circle"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
