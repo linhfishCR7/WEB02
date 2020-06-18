@@ -17,6 +17,12 @@ Sản phẩm {{ sanpham.sp_ten }}
  <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="/assets/frontend/img/breadcrumb.jpg">
         <div class="container">
+        <div id="errors-container" class="alert alert-danger d-none face" role="alert">
+            <div id="thongbao"></div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         {% set hinhsanphamdautien = sanpham.danhsachhinhanh|first %}
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -37,13 +43,12 @@ Sản phẩm {{ sanpham.sp_ten }}
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-            <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"action="/frontend/giohang/themvaogiohang">
+            <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post"action="/frontend/ajax/giohang-themsanpham-ajax.php">
                 {# {% set hinhsanphamdautien = sanpham.danhsachhinhanh|first %} #}
                 <input type="hidden" name="sp_ma" id="sp_ma" value="{{ sanpham.sp_ma }}" />
                 <input type="hidden" name="sp_ten" id="sp_ten" value="{{ sanpham.sp_ten }}" />
                 <input type="hidden" name="sp_gia" id="sp_gia" value="{{ sanpham.sp_gia }}" />
-                <input type="hidden" name="hinhdaidien" id="hinhdaidien"
-                    value="{{ hinhsanphamdautien.hsp_tentaptin }}" />
+                <input type="hidden" name="hinhdaidien" id="hinhdaidien" value="{{ hinhsanphamdautien.hsp_tentaptin }}" />
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         {% if sanpham.danhsachhinhanh|length > 0 %}
@@ -94,11 +99,11 @@ Sản phẩm {{ sanpham.sp_ten }}
                             <div class="product__details__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" id="soluong" name="soluong" >
+                                        <input type="number"  id="soluong" name="soluong" >
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn" id="btnThemVaoGioHang">ADD TO CARD</a>
+                            <a href="/frontend/ajax/giohang-themsanpham-ajax.php" class="primary-btn" id="btnThemVaoGioHang">ADD TO CARD</a>
                             <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                             <ul>
                                 <li><b>Availability</b> <span>{{ sanpham.sp_availability }}</span></li>
@@ -247,14 +252,14 @@ Sản phẩm {{ sanpham.sp_ten }}
                 };
                 console.log((dulieugoi));
                 $.ajax({
-                    url: '/frontend/ajax/giohang-themsanpham-ajax',
+                    url: '/frontend/ajax/giohang-themsanpham-ajax.php',
                     method: "POST",
                     dataType: 'json',
                     data: dulieugoi,
                     success: function (data) {
                         console.log(data);
                         var htmlString =
-                            `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/frontend/thanhtoan/giohang">Xem Giỏ hàng</a>.`;
+                            `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/frontend/checkout/cart.php">Xem Giỏ hàng</a>.`;
                         $('#thongbao').html(htmlString);
                         // Hiện thông báo
                         $('.alert').removeClass('d-none').addClass('show');
