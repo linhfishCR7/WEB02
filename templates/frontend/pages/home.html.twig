@@ -43,10 +43,22 @@ Trang chủ
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
+                        <form name="frmTimKiem" method="get" action="/frontend/sanpham/search.php">
+
+
+                            {# <div class="hero__search__categories">
                                 All Categories
                                 <span class="arrow_carrot-down"></span>
+                            </div> #}
+
+                            <div class="hero__search__categories">
+                                <div class="controls">
+                                    <select class="form-control"  id="chk-loaisanpham-{{ loaisanpham.lsp_ma }}" name="keyword_loaisanpham[]">
+                                        {% for loaisanpham in danhsachloaisanpham %}
+                                            <option value="{{ loaisanpham.lsp_ma }}">{{ loaisanpham.lsp_ten }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
                             </div>
                             <input type="text" placeholder="What do yo u need?">
                             <button type="submit" class="site-btn">SEARCH</button>
@@ -136,9 +148,17 @@ Trang chủ
                 </div>
             </div>
         </div>
-        
+        {# <form name="frmsanpham" id="frmsanpham" method="post" action="/frontend/ajax/giohang-themsanpham-ajax.php"> #}
+
         <div class="row featured__filter">
             {% for sanpham in danhsachsanpham %}
+
+                {# {% set hinhsanphamdautien = sanpham.danhsachhinhanh|first %} #}
+                {# <input type="hidden" name="sp_ma" id="sp_ma" value="{{ sanpham.sp_ma }}" />
+                <input type="hidden" name="sp_ten" id="sp_ten" value="{{ sanpham.sp_ten }}" />
+                <input type="hidden" name="soluong" id="soluong" value="1" />
+                <input type="hidden" name="sp_gia" id="sp_gia" value="{{ sanpham.sp_gia }}" />
+                <input type="hidden" name="hinhdaidien" id="hinhdaidien" value="{{ hinhsanphamdautien.hsp_tentaptin }}" /> #}
 
             <div class="col-lg-3 col-md-4 col-sm-6 mix {{ sanpham.lsp_ten }}">
                 <div class="featured__item">
@@ -148,7 +168,7 @@ Trang chủ
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="/frontend/sanpham/detail.php?sp_ma={{ sanpham.sp_ma }}"><i class="fa fa-info-circle"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="/frontend/checkout/cart.php" id="btnThemVaoGioHang"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     {% else %}
@@ -173,8 +193,10 @@ Trang chủ
             {% if (counter % group == 0 and counter < limit) %}
             </div><div class="row featured__filter">
             {% endif %}
+            
             {% endfor %}
         </div>
+        {# </form> #}
     </div>
 </section>
 <!-- Featured Section End -->
@@ -465,4 +487,5 @@ Trang chủ
 <!-- Blog Section End -->
 
 {% endblock %}
+ 
 {# End Nội dung trong block content #}
