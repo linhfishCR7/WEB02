@@ -49,28 +49,36 @@ Bảng tin
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span3">
-                                    <div class="chart" data-percent="73">73%</div>
-                                    <div class="chart-bottom-heading"><span class="label label-info">Visitors</span>
+                                    {% for chudegopycount in ds_chudegopycount %}
+                                    <div class="chart" data-percent="{{ chudegopycount.cdgy_soluong_thongke }}">{{ chudegopycount.cdgy_soluong }}</div>
+                                    <div class="chart-bottom-heading"><span class="label label-info">Chủ đề</span>
 
                                     </div>
+                                    {% endfor %}
                                 </div>
                                 <div class="span3">
-                                    <div class="chart" data-percent="53">53%</div>
-                                    <div class="chart-bottom-heading"><span class="label label-info">Page Views</span>
-
+                                    {% for nhasanxuatcount in ds_nhasanxuatcount %}
+                                        <div class="chart" data-percent="{{ nhasanxuatcount.nsx_soluong_thongke }}">{{ nhasanxuatcount.nsx_soluong }}</div>
+                                        <div class="chart-bottom-heading"><span class="label label-info">Nhà SX</span>
                                     </div>
+                                    {% endfor %}
+
                                 </div>
-                                <div class="span3">
-                                    <div class="chart" data-percent="83">83%</div>
-                                    <div class="chart-bottom-heading"><span class="label label-info">Users</span>
-
+                                 <div class="span3">
+                                    {% for loaisanphamcount in ds_loaisanphamcount %}
+                                        <div class="chart" data-percent="{{ loaisanphamcount.lsp_soluong_thongke }}">{{ loaisanphamcount.lsp_soluong }}</div>
+                                        <div class="chart-bottom-heading"><span class="label label-info">Loại SP</span>
                                     </div>
+                                    {% endfor %}
+
                                 </div>
-                                <div class="span3">
-                                    <div class="chart" data-percent="13">13%</div>
-                                    <div class="chart-bottom-heading"><span class="label label-info">Orders</span>
-
+                                 <div class="span3">
+                                    {% for khachhangcount in ds_khachhangcount %}
+                                        <div class="chart" data-percent="{{ khachhangcount.kh_soluong_thongke }}">{{ khachhangcount.kh_soluong }}</div>
+                                        <div class="chart-bottom-heading"><span class="label label-info">Khách hàng</span>
                                     </div>
+                                    {% endfor %}
+
                                 </div>
                             </div>
                         </div>

@@ -36,11 +36,11 @@
                  <span class="icon-bar"></span>
                  <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#">Admin Panel</a>
+                <a class="brand" href="/backend/pages/dashboard.php">Admin Panel</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> User Admin <i class="caret"></i>
 
                             </a>
                             <ul class="dropdown-menu">
@@ -56,9 +56,9 @@
                     </ul>
                     <ul class="nav">
                         <li class="active">
-                            <a href="#">Dashboard</a>
+                            <a href="/backend/pages/dashboard.php">Dashboard</a>
                         </li>
-                        <li class="dropdown">
+                        {# <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
 
                             </a>
@@ -93,14 +93,14 @@
                                     <a href="#">Other Link</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> #}
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Content <i class="caret"></i>
 
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a tabindex="-1" href="#">Blog</a>
+                                    <a tabindex="-1" target="_blank" href="https://linhfishcr7.wordpress.com/">Blog</a>
                                 </li>
                                 <li>
                                     <a tabindex="-1" href="#">News</a>
@@ -109,7 +109,7 @@
                                     <a tabindex="-1" href="#">Custom Pages</a>
                                 </li>
                                 <li>
-                                    <a tabindex="-1" href="#">Calendar</a>
+                                    <a tabindex="-1" href="/backend/calendar.php">Calendar</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -150,69 +150,69 @@
                         <a href="/backend/calendar.php"><i class="icon-chevron-right"></i> Calendar</a>
                     </li>
                     <li class="dropdown">
-                        <a href="stats.html" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-right"></i>Cập nhật bảng dữ liệu</a>
+                        <a href="stats.html" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-right"></i>Thêm mới bảng dữ liệu</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a tabindex="-1" href="/backend/nhasanxuat/index.php">Nhà Sản Xuất</a>
+                                <a tabindex="-1" href="/backend/nhasanxuat/create.php">Nhà Sản Xuất</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/loaisanpham/index.php">Loại Sản Phẩm</a>
+                                <a tabindex="-1" href="/backend/loaisanpham/create.php">Loại Sản Phẩm</a>
                             </li>
                             <li>
                                 <a tabindex="-1" href="/backend/sanpham/index.php">Sản Phẩm</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/hinhsanpham/index.php">Hình Sản Phẩm</a>
+                                <a tabindex="-1" href="/backend/hinhsanpham/create.php">Hình Sản Phẩm</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/sanpham_dondathang/index.php">Sản Phẩm Đơn Đặt Hàng</a>
+                                <a tabindex="-1" href="/backend/sanpham_dondathang/">Sản Phẩm Đơn Đặt Hàng</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/khachhang/index.php">Khách Hàng</a>
+                                <a tabindex="-1" href="/backend/khachhang/create.php">Khách Hàng</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/khuyenmai/index.php">Khuyến Mãi</a>
+                                <a tabindex="-1" href="/backend/khuyenmai/create.php">Khuyến Mãi</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/dondathang/index.php">Đơn Đặt Hàng</a>
+                                <a tabindex="-1" href="/backend/dondathang/create.php">Đơn Đặt Hàng</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/hinhthucthanhtoan/index.php">Hình Thức Thanh Toán</a>
+                                <a tabindex="-1" href="/backend/hinhthucthanhtoan/create.php">Hình Thức Thanh Toán</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/chudegopy/index.php">Chủ Đề Góp Ý</a>
+                                <a tabindex="-1" href="/backend/chudegopy/create.php">Chủ Đề Góp Ý</a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="/backend/gopy/index.php">Góp Ý</a>
+                                <a tabindex="-1" href="/backend/gopy/">Góp Ý</a>
                             </li>
                             
                         </ul>
                     </li>
                     <li>
-                        <a href="form.html"><i class="icon-chevron-right"></i> Forms</a>
+                        <a href="/backend/khachhang/index.php"><i class="icon-chevron-right"></i> Khách hàng</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
+                        <a href="/backend/loaisanpham/index.php"><i class="icon-chevron-right"></i> Loại sản phẩm</a>
                     </li>
                     <li>
-                        <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
+                        <a href="/backend/sanpham/index.php"><i class="icon-chevron-right"></i> Sản phẩm</a>
                     </li>
                     <li>
-                        <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
+                        <a href="/backend/chudegopy/index.php"><i class="icon-chevron-right"></i> Chủ đề góp ý</a>
                     </li>
                     <li>
-                        <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
+                        <a href="/backend/dondathang/index.php"><i class="icon-chevron-right"></i> Đơn đặt hàng</a>
                     </li>
                     <li>
-                        <a href="#"><span class="badge badge-success pull-right">731</span> Orders</a>
+                        <a href="/backend/gopy"><i class="icon-chevron-right"></i> Góp ý</a>
                     </li>
                     <li>
-                        <a href="#"><span class="badge badge-success pull-right">812</span> Invoices</a>
+                        <a href="/backend/hinhthucthanhtoan/index.php"><i class="icon-chevron-right"></i>  Hình thức TT</a>
                     </li>
                     <li>
-                        <a href="#"><span class="badge badge-info pull-right">27</span> Clients</a>
+                        <a href="/backend/khuyenmai/index.php"><i class="icon-chevron-right"></i>  Khuyến mãi</a>
                     </li>
-                    <li>
+                    {# <li>
                         <a href="#"><span class="badge badge-info pull-right">1,234</span> Users</a>
                     </li>
                     <li>
@@ -226,7 +226,7 @@
                     </li>
                     <li>
                         <a href="#"><span class="badge badge-warning pull-right">4,231</span> Logs</a>
-                    </li>
+                    </li> #}
                 </ul>
             </div>
 

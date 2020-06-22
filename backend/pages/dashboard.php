@@ -27,7 +27,7 @@ while($row = mysqli_fetch_array($resultnsx, MYSQLI_ASSOC))
     );
 }
 
-$sqlnsxcount = "select count(nhasanxuat.nsx_ma) as nsx_soluong from `nhasanxuat`";
+$sqlnsxcount = "select count(nhasanxuat.nsx_ma) as nsx_soluong,count(nhasanxuat.nsx_ma)*0.01 as nsx_soluong_thongke from `nhasanxuat`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultnsxcount = mysqli_query($conn, $sqlnsxcount);
@@ -41,6 +41,7 @@ while($row = mysqli_fetch_array($resultnsxcount, MYSQLI_ASSOC))
     $datansxcount[] = array(
        
         'nsx_soluong' => number_format($row['nsx_soluong'], 0, ".", ","),
+        'nsx_soluong_thongke' => number_format($row['nsx_soluong_thongke'], 0, ".", ","),
 
     );
 }
@@ -63,7 +64,7 @@ while($row = mysqli_fetch_array($resultlsp, MYSQLI_ASSOC))
     );
 }
 
-$sqllspcount = "select count(loaisanpham.lsp_ma) as lsp_soluong from `loaisanpham`";
+$sqllspcount = "select count(loaisanpham.lsp_ma) as lsp_soluong,count(loaisanpham.lsp_ma)*0.01 as lsp_soluong_thongke from `loaisanpham`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultlspcount = mysqli_query($conn, $sqllspcount);
@@ -76,7 +77,7 @@ while($row = mysqli_fetch_array($resultlspcount, MYSQLI_ASSOC))
 {
     $datalspcount[] = array(
         'lsp_soluong' => number_format($row['lsp_soluong'], 0, ".", ","),
-
+        'lsp_soluong_thongke' => number_format($row['lsp_soluong_thongke'], 0, ".", ","),
     );
 }
 
@@ -98,7 +99,7 @@ while($row = mysqli_fetch_array($resultkh, MYSQLI_ASSOC))
     );
 }
 
-$sqlkhcount = "select count(khachhang.kh_ma) as kh_soluong from `khachhang`";
+$sqlkhcount = "select count(khachhang.kh_ma) as kh_soluong,count(khachhang.kh_ma) as kh_soluong_thongke from `khachhang`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultkhcount = mysqli_query($conn, $sqlkhcount);
@@ -111,7 +112,7 @@ while($row = mysqli_fetch_array($resultkhcount, MYSQLI_ASSOC))
 {
     $datakhcount[] = array(
         'kh_soluong' => number_format($row['kh_soluong'], 0, ".", ","),
-
+        'kh_soluong_thongke' => number_format($row['kh_soluong_thongke'], 0, ".", ","),
     );
 }
 
@@ -132,7 +133,7 @@ while($row = mysqli_fetch_array($resultcdgy, MYSQLI_ASSOC))
     );
 }
 
-$sqlcdgycount = "select count(chudegopy.cdgy_ma) as cdgy_soluong from `chudegopy`";
+$sqlcdgycount = "select count(chudegopy.cdgy_ma) as cdgy_soluong,count(chudegopy.cdgy_ma)*0.01 as cdgy_soluong_thongke from `chudegopy`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultcdgycount = mysqli_query($conn, $sqlcdgycount);
@@ -145,6 +146,7 @@ while($row = mysqli_fetch_array($resultcdgycount, MYSQLI_ASSOC))
 {
     $datacdgycount[] = array(
         'cdgy_soluong' => number_format($row['cdgy_soluong'], 0, ".", ","),
+        'cdgy_soluong_thongke' => number_format($row['cdgy_soluong_thongke'], 0, ".", ","),
 
     );
 }
