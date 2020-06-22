@@ -28,12 +28,9 @@ Bảng tin
 	                                    <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
 	                                    <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
 	                                    <li>
-	                                        <a href="#">Dashboard</a> <span class="divider">/</span>	
+	                                        <a href="/backend/pages/dashboard.php">Dashboard</a> <span class="divider">/</span>	
 	                                    </li>
-	                                    <li>
-	                                        <a href="#">Settings</a> <span class="divider">/</span>	
-	                                    </li>
-	                                    <li class="active">Tools</li>
+	                                   
 	                                </ul>
                             	</div>
                         	</div>
@@ -81,9 +78,97 @@ Bảng tin
 
                                 </div>
                             </div>
+
+                            
                         </div>
                         <!-- /block -->
                     </div>
+
+                <div class="block">
+                 <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">Thống kê</div>
+                                <div class="pull-right"><span class="badge badge-warning">View More</span>
+
+                                </div>
+                            </div>
+                    <div class="block-content collapse in">
+                        <div class="span3">
+                            <div class="card text-white bg-primary mb-2">
+                                <div class="card-body pb-0">
+                                    <div class="text-value" id="baocaoSanPham_quantity">
+                                        <h1>0</h1>
+                                    </div>
+                                    <div>Tổng số mặt hàng</div>
+                                </div>
+                                </div>
+                                <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoSanPham">Refresh dữ liệu</button>
+                            </div> <!-- Tổng số mặt hàng -->
+                            <div class="span3">
+                                <div class="card text-white bg-success mb-2">
+                                    <div class="card-body pb-0">
+                                        <div class="text-value" id="baocaoKhachHang_quantity">
+                                            <h1>0</h1>
+                                        </div>
+                                        <div>Tổng số khách hàng</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success btn-sm form-control" id="refreshBaoCaoKhachHang">Refresh dữ liệu</button>
+                            </div> <!-- Tổng số khách hàng -->
+                            <div class="span3">
+                                <div class="card text-white bg-warning mb-2">
+                                    <div class="card-body pb-0">
+                                        <div class="text-value" id="baocaoDonHang_quantity">
+                                            <h1>0</h1>
+                                        </div>
+                                        <div>Tổng số đơn hàng</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-warning btn-sm form-control" id="refreshBaoCaoDonHang">Refresh dữ liệu</button>
+                            </div> <!-- Tổng số đơn hàng -->
+                            <div class="span3">
+                                <div class="card text-white bg-danger mb-2">
+                                    <div class="card-body pb-0">
+                                        <div class="text-value" id="baocaoGopY_quantity">
+                                            <h1>0</h1>
+                                        </div>
+                                        <div>Tổng số góp ý</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-danger btn-sm form-control" id="refreshBaoCaoGopY">Refresh dữ liệu</button>
+                            </div> <!-- Tổng số góp ý -->
+                            <div id="ketqua"></div>
+                        </div><!-- row -->
+                </div>
+
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">Thống kê</div>
+                        <div class="pull-right"><span class="badge badge-warning">View More</span>
+
+                        </div>
+                    </div>
+                    <div class="block-content collapse in">
+                            <!-- Biểu đồ thống kê loại sản phẩm -->
+                        <div class="span3">
+                            <canvas id="chartOfobjChartThongKeChuDeGopY"></canvas>
+                            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeChuDeGopY">Refresh dữ liệu</button>
+                        </div><!-- col -->
+                        <div class="span3">
+                            <canvas id="chartOfobjChartThongKeNhaSanXuat"></canvas>
+                            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeNhaSanXuat">Refresh dữ liệu</button>
+                        </div><!-- col -->
+                        <div class="span3">
+                            <canvas id="chartOfobjChartThongKeSanPham"></canvas>
+                            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeSanPham">Refresh dữ liệu</button>
+                        </div><!-- col -->
+                        <div class="span3">
+                            <canvas id="chartOfobjChartThongKeLoaiSanPham"></canvas>
+                            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeLoaiSanPham">Refresh dữ liệu</button>
+                        </div><!-- col -->
+                            
+                    </div><!-- row -->
+                </div>
+
                     <div class="row-fluid">
                         <div class="span6">
                             <!-- block -->

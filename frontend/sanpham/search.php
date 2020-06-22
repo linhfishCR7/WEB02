@@ -89,9 +89,9 @@ $keyword_loaisanpham = isset($_GET['keyword_loaisanpham']) ? $_GET['keyword_loai
 $keyword_nhasanxuat = isset($_GET['keyword_nhasanxuat']) ? $_GET['keyword_nhasanxuat'] : [];
 $keyword_khuyenmai = isset($_GET['keyword_khuyenmai']) ? $_GET['keyword_khuyenmai'] : [];
 $keyword_sotientu = isset($_GET['keyword_sotientu']) ? $_GET['keyword_sotientu'] : 0;
-$keyword_sotienden = isset($_GET['keyword_sotienden']) ? $_GET['keyword_sotienden'] : 50000000;
+$keyword_sotienden = isset($_GET['keyword_sotienden']) ? $_GET['keyword_sotienden'] : 500;
 // Câu lệnh query động tùy theo yêu cầu tìm kiếm của người dùng
-$sqlDanhSachSanPham = <<<EOT
+$sqlDanhSachSanPham =<<<EOT
     SELECT sp.sp_ma, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_mota_ngan, sp.sp_soluong, lsp.lsp_ten, MAX(hsp.hsp_tentaptin) AS hsp_tentaptin
     FROM `sanpham` sp
     JOIN `loaisanpham` lsp ON sp.lsp_ma = lsp.lsp_ma
@@ -128,7 +128,7 @@ if (count($sqlWhereArr) > 0) {
     $sqlWhere = "WHERE " . implode(' AND ', $sqlWhereArr);
     $sqlDanhSachSanPham  .= $sqlWhere;
 }
-$sqlDanhSachSanPham .= <<<EOT
+$sqlDanhSachSanPham .=<<<EOT
     GROUP BY sp.sp_ma, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_mota_ngan, sp.sp_soluong, lsp.lsp_ten
 EOT;
 // Thực thi câu truy vấn SQL để lấy về dữ liệu
