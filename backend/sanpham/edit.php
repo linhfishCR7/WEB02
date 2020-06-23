@@ -112,12 +112,16 @@ if(isset($_POST['btnSave']))
     $motachitiet = $_POST['sp_mota_chitiet'];
     $ngaycapnhat = $_POST['sp_ngaycapnhat'];
     $sp_soluong = $_POST['sp_soluong'];
+    $sp_khoiluong = $_POST['sp_khoiluong'];
+    $sp_availability = $_POST['sp_availability'];
+    $sp_shipping = $_POST['sp_shipping'];
+    $sp_phantram = $_POST['sp_phantram'];
     $lsp_ma = $_POST['lsp_ma'];
     $nsx_ma = $_POST['nsx_ma'];
     $km_ma = empty($_POST['km_ma']) ? 'NULL' : $_POST['km_ma'];
 
     // Câu lệnh INSERT
-    $sql = "UPDATE `sanpham` SET sp_ten='$ten', sp_gia=$gia, sp_giacu=$giacu, sp_mota_ngan='$motangan', sp_mota_chitiet='$motachitiet', sp_ngaycapnhat='$ngaycapnhat', sp_soluong=$sp_soluong, lsp_ma=$lsp_ma, nsx_ma=$nsx_ma, km_ma=$km_ma WHERE sp_ma=$sp_ma;";
+    $sql = "UPDATE `sanpham` SET sp_ten='$ten', sp_gia=$gia, sp_giacu=$giacu, sp_mota_ngan='$motangan', sp_mota_chitiet='$motachitiet', sp_ngaycapnhat='$ngaycapnhat', sp_soluong=$sp_soluong,sp_khoiluong=$sp_khoiluong,sp_availability=$sp_availability,sp_shipping=$sp_shipping,sp_phantram=$sp_phantram, lsp_ma=$lsp_ma, nsx_ma=$nsx_ma, km_ma=$km_ma WHERE sp_ma=$sp_ma;";
     
     // Thực thi INSERT
     mysqli_query($conn, $sql);
