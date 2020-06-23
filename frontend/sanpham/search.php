@@ -125,12 +125,17 @@ if (!empty($keyword_sotientu) && !empty($keyword_sotienden)) {
 }
 // Câu lệnh cuối cùng
 if (count($sqlWhereArr) > 0) {
-    $sqlWhere = "WHERE " . implode(' AND ', $sqlWhereArr);
+    $sqlWhere = " WHERE " . implode(' AND ', $sqlWhereArr);
     $sqlDanhSachSanPham  .= $sqlWhere;
+    // var_dump($sqlDanhSachSanPham);die;
 }
+
+   
+
 $sqlDanhSachSanPham .=<<<EOT
     GROUP BY sp.sp_ma, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_mota_ngan, sp.sp_soluong, lsp.lsp_ten
 EOT;
+// var_dump($sqlDanhSachSanPham);die;
 // Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sqlDanhSachSanPham);
 // Khi thực thi các truy vấn dạng SELECT, dữ liệu lấy về cần phải phân tích để sử dụng
