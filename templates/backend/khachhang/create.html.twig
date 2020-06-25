@@ -25,23 +25,113 @@ Thêm mới hình thức thanh toán
         </div>
         <div class="block-content collapse in">
             <div class="span12">
-                 <form class="form-horizontal" name="frmHinhThucThanhToan" id="frmHinhThucThanhToan" method="post" action="/backend/hinhthucthanhtoan/create.php">
+                 <form class="form-horizontal" name="frmKhachHang" id="frmKhachHang" method="post" action="/backend/khachhang/create.php">
                   <fieldset>
                     <legend>Form Horizontal</legend>
                     <div class="control-group success">
-                      <label class="control-label" for="httt_ma">Mã hình thức thanh toán</label>
+                      <label class="control-label" for="kh_ma">Mã khách hàng</label>
                       <div class="controls">
-                        <input type="text" id="httt_ma" name="httt_ma" placeholder="Mã hình thức thanh toán" readonly>
+                        <input type="text" id="kh_ma" name="kh_ma" placeholder="Mã Khach hàng" readonly>
                         <!-- <span class="help-inline">Woohoo!</span> -->
                       </div>
                     </div>
-                    <div class="control-group warning">
-                      <label class="control-label" for="httt_ten">Tên hình thức thanh toán</label>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_tendangnhap">Tên đăng nhập</label>
                       <div class="controls">
-                        <input type="text" id="httt_ten" name="httt_ten" placeholder="Tên hình thức thanh toán">
-                        <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                        <input type="text" id="kh_tendangnhap" name="kh_tendangnhap" placeholder="Tên đăng nhập" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
                       </div>
                     </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_matkhau">Mật khẩu</label>
+                      <div class="controls">
+                        <input type="text" id="kh_matkhau" name="kh_matkhau" placeholder="Mật khẩu" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_ten">Tên khách hàng</label>
+                      <div class="controls">
+                        <input type="text" id="kh_ten" name="kh_ten" placeholder="Tên Khach hàng" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_gioitinh">Giới tính</label>
+                      <div class="controls">
+                        <input type="text" id="kh_gioitinh" name="kh_gioitinh" placeholder="Giới tính" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_diachi">Địa chỉ</label>
+                      <div class="controls">
+                        <textarea id="kh_diachi" name="kh_diachi" placeholder="Địa chỉ" cols="30" rows="10"></textarea>
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_dienthoai">Số điện thoại</label>
+                      <div class="controls">
+                        <input type="text" id="kh_dienthoai" name="kh_dienthoai" placeholder="Số điện thoại" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_email">Email</label>
+                      <div class="controls">
+                        <input type="text" id="kh_email" name="kh_email" placeholder="Email" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_ngaysinh">Ngày sinh</label>
+                      <div class="controls">
+                        <input type="text" id="kh_ngaysinh" name="kh_ngaysinh" placeholder="Ngày sinh" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_thangsinh">Tháng sinh</label>
+                      <div class="controls">
+                        <input type="text" id="kh_thangsinh" name="kh_thangsinh" placeholder="Tháng sinh" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_namsinh">Năm sinh</label>
+                      <div class="controls">
+                        <input type="text" id="kh_namsinh" name="kh_namsinh" placeholder="Năm sinh" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_cmnd">Số CMND</label>
+                      <div class="controls">
+                        <input type="text" id="kh_cmnd" name="kh_cmnd" placeholder="Số CMND">
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_makichhoat">Mã kích hoạt</label>
+                      <div class="controls">
+                        <input type="text" id="kh_makichhoat" name="kh_makichhoat" placeholder="Mã kích hoạt" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_trangthai">Trạng thái</label>
+                      <div class="controls">
+                        <input type="text" id="kh_trangthai" name="kh_trangthai" placeholder="Trạng thái" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    <div class="control-group success">
+                      <label class="control-label" for="kh_quantri">Quản trị</label>
+                      <div class="controls">
+                        <input type="text" id="kh_quantri" name="kh_quantri" placeholder="Quản trị" >
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+                    </div>
+                    
                    
 
                     <div class="form-actions">
