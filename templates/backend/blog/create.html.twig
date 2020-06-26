@@ -1,0 +1,102 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới Hình Blog
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới Hình Blog
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="span9" id="content">
+<div class="row-fluid">
+    <!-- block -->
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">Form Example</div>
+        </div>
+        <div class="block-content collapse in">
+            <div class="span12">
+        <form class="form-horizontal" name="frmhinhblog" id="frmhinhblog" method="post" action="/backend/blog/create.php" enctype="multipart/form-data">
+            <div class="control-group success">
+                      <label class="control-label" for="bl_ma">Mã bài đăng</label>
+                      <div class="controls">
+                        <input type="text" id="bl_ma" name="bl_ma" placeholder="Mã bài đăng" readonly>
+                        <!-- <span class="help-inline">Woohoo!</span> -->
+                      </div>
+            </div>
+            <div class="control-group warning">
+                <label class="control-label" for="bl_chude">Chủ đề góp ý</label>
+                <div class="controls">
+                <textarea class="input-xlarge textarea" id="bl_chude" name="bl_chude" placeholder="Tên chủ đề góp ý" style="width: 810px; height: 200px"></textarea>
+                <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                </div>
+            </div>
+            
+             <div class="control-group">
+                    <label class="control-label" for="bl_mota_ngan">Mô tả ngắn</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge textarea" name="bl_mota_ngan" id="bl_mota_ngan" placeholder="Mô tả ngắn" style="width: 810px; height: 200px"></textarea>
+                    </div>
+            </div>
+
+            <div class="control-group">
+                    <label class="control-label" for="bl_noidung">Nội dung</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge textarea" name="bl_noidung" id="bl_noidung" placeholder="Nội dung" style="width: 810px; height: 200px"></textarea>
+                    </div>
+            </div>
+            <div class="control-group">
+                    <label class="control-label" for="bl_ngay">Ngày</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge textarea" name="bl_ngay" id="bl_ngay" placeholder="Ngày" style="width: 810px; height: 200px"></textarea>
+                    </div>
+            </div>
+            <div class="control-group">
+                    <label class="control-label" for="bl_tags">Tags</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge textarea" name="bl_tags" id="bl_tags" placeholder="Tags" style="width: 810px; height: 200px"></textarea>
+                    </div>
+            </div>
+            <div class="control-group success">
+                <label for="lsp_ma" class="control-label">Loại Sản phẩm</label>
+                <div class="controls">
+                <select class="form-control" id="lsp_ma" name="lsp_ma">
+                    {% for loaisanpham in ds_loaisanpham %}
+                    <option value="{{ loaisanpham.lsp_ma }}">{{ loaisanpham.lsp_ten }}</option>
+                    {% endfor %}
+                </select>
+                </div>
+            </div>
+            <div class="control-group success">
+                <label for="kh_ma" class="control-label">Khach Hàng</label>
+                <div class="controls">
+                <select class="form-control" id="kh_ma" name="kh_ma">
+                    {% for khachhang in ds_khachhang %}
+                    <option value="{{ khachhang.kh_ma }}">{{ khachhang.kh_tendangnhap }}</option>
+                    {% endfor %}
+                </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="hb_tentaptin" class="control-label">Tập tin ảnh</label>
+                <div class="controls">
+                    <input type="file" class="input-file uniform_on" id="hb_tentaptin" name="hb_tentaptin">
+                </div>
+            </div>
+            <button class="btn btn-primary" name="btnSave">Cập nhật</button>
+        </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{# End Nội dung trong block content #}

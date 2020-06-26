@@ -62,18 +62,14 @@ Danh sách thông tin khách hàng
                             <td>{{ khachhang.kh_cmnd }}</td>
                             <td class="center">
                                 <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `lsp_ma` -->
-                                <a href="edit.php?kh_ma={{ khachhang.kh_ma }}" class="btn btn-warning">
-                                    <span data-feather="edit"></span> Sửa
-                                </a>
-                
+                                 <button class="btn btn-warning"><a href="edit.php?kh_ma={{ khachhang.kh_ma }}"><i class="icon-pencil"></i> Sửa</a>
+                                </button>
                                 <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `nsx_ma` -->
-                                <a href="delete.php?kh_ma={{ khachhang.kh_ma }}" class="btn btn-danger">
-                                    <span data-feather="delete"></span> Xóa
-                                </a>
-
-                                <a href="detail.php?kh_ma={{ khachhang.kh_ma }}" class="btn btn-primary">
-                                    <span data-feather="detail"></span> Detail
-                                </a>
+                                <button class="btn btn-danger"><a href="delete.php.php?kh_ma={{ khachhang.kh_ma }}"><i class="icon-remove"></i> Xóa</a>
+                                </button>
+                                <button class="btn "><a href="detail.php?kh_ma={{ khachhang.kh_ma }}"><i class="icon-eye-open "></i> View</a>
+                                </button>
+                                
                             </td>
                         </tr>
                         {% endfor %}
