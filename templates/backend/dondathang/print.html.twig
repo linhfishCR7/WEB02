@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Paper CSS -->
+  <link rel="stylesheet" href="/assets/vendor/paper-css/paper.css" type="text/css" />
+
+  <!-- Custom css - Các file css do chúng ta tự viết -->
+  {# <link rel="stylesheet" href="/php/twig/assets/backend/css/style-print.css" type="text/css" /> #}
+
+  <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
+  <title>Nền tảng - Kiến thức cơ bản về WEB |
+    In Đơn đặt hàng
+  </title>
+  <!-- End block title -->
+
+  <!-- Block customstyles - Đục lỗ trên giao diện bố cục chung, đặt tên là `customstyles` -->
+  <!-- Định khổ giấy: A5, A4 or A3 -->
+<style>
+    @page {
+        size: A4
+    }
+</style>
+  <!-- End block customstyles -->
+
+</head>
+
+<body class="A4">
+  <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+  <!-- Each sheet element should have the class "sheet" -->
+<!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
+<section class="sheet padding-10mm">
+    <!-- Thông tin Cửa hàng -->
+    <table border="0" width="100%" cellspacing="0">
+        <tbody>
+            <tr>
+                <td align="center"><img src="https://linhfish.xyz/assets/frontend/img/logo.png" width="100px"
+                        height="100px" /></td>
+                <td align="center">
+                    <b style="font-size: 2em;">Nền tảng - Hành trang tới Tương lai</b><br />
+                    <small>Cung cấp kiến thức nền tảng về Lập trình, Thiết kế Web, Cơ sở dữ liệu</small><br />
+                    <small>Giúp các bạn có niềm tin, hành trang kiến thức vững vàng trên con đường trở thành Nhà phát
+                        triển
+                        Phần mềm</small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Thông tin đơn hàng -->
+    <p><i><u>Thông tin Đơn hàng</u></i></p>
+    <table border="0" width="100%" cellspacing="0">
+        <tbody>
+            <tr>
+                <td width="30%">Khách hàng:</td>
+                <td><b>{{ dondathang.kh_ten }}</b></td>
+            </tr>
+            <tr>
+                <td>Ngày lập:</td>
+                <td><b>{{ dondathang.dh_ngaylap}}</b></td>
+            </tr>
+            <tr>
+                <td>Hình thức thanh toán:</td>
+                <td><b>{{ dondathang.httt_ten}}</b></td>
+            </tr>
+            <tr>
+                <td>Tổng thành tiền:</td>
+                <td><b>{{ dondathang.Tongamount}}</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Thông tin sản phẩm -->
+    <p><i><u>Chi tiết đơn hàng</u></i></p>
+    <table border="1" width="100%" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td align="center">1</td>
+                <td>
+                    <b>Samsung Galaxy S3</b><br />
+                    <small><i>Điện thoại</i></small><br />
+                    <small><i>Samsung</i></small>
+                </td>
+                <td align="right">3</td>
+                <td align="right">12000000.00</td>
+                <td align="right">36000000</td>
+            </tr>
+                        <tr>
+                <td align="center">2</td>
+                <td>
+                    <b>Samsung Galaxy Tab 10.1 3G 16G</b><br />
+                    <small><i>Máy tính bảng</i></small><br />
+                    <small><i>Samsung</i></small>
+                </td>
+                <td align="right">2</td>
+                <td align="right">10990000.00</td>
+                <td align="right">21980000</td>
+            </tr>
+                    </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" align="right"><b>Tổng thành tiền</b></td>
+                <td align="right">57,980,000.00 vnđ</td>
+            </tr>
+        </tfoot>
+    </table>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá </th>
+                                <th>Thành tiền</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                     
+                                <tr class="odd gradeX">
+                                    <td>{{ dondathang.dh_ma }}</td>
+                                    <td>{{ sanpham.sp_ten }}</td>
+                                    <td>{{ dondathang.sp_soluong }}</td>
+                                    <td>{{ sanpham.sp_gia }}</td>
+                                    <td>{{ dondathang.Tongamount}}</td>
+                                   
+                                    
+                                </tr>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" align="right"><b>Tổng thành tiền</b></td>
+                                <td align="right">57,980,000.00 vnđ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+    <!-- Thông tin Footer -->
+    <br />
+    <table border="0" width="100%">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <small>Xin cám ơn Quý khách đã ủng hộ Cửa hàng, Chúc Quý khách An Khang, Thịnh Vượng!</small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+  <!-- End block content -->
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới sản phẩm đơn đặt hàng
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới sản phẩm đơn đặt hàng
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="span9" id="content">
+    <div class="row-fluid">
+        <!-- block -->
+        <div class="block">
+            <div class="navbar navbar-inner block-header">
+                <div class="muted pull-left">Form Example</div>
+            </div>
+            <div class="block-content collapse in">
+                <div class="span12">
+                     <form class="form-horizontal" name="frmSanPhamDonDatHang" id="frmSanPhamDonDatHang" method="post" action="/backend/sanpham_dondathang/create.php">
+                      <fieldset>
+                        <legend>Form Horizontal</legend>
+                        
+
+                        <div class="control-group warning">
+                            <label class="control-label" for="sp_dh_soluong">Số lượng</label>
+                            <div class="controls">
+                            <input type="text" id="sp_dh_soluong" name="sp_dh_soluong" placeholder="Số lượng">
+                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                            </div>
+                        </div>
+
+                        <div class="control-group warning">
+                            <label class="control-label" for="sp_dh_dongia">Đơn giá</label>
+                            <div class="controls">
+                            <input type="text" id="sp_dh_dongia" name="sp_dh_dongia" placeholder="Ngày giao">
+                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                            </div>
+                        </div>
+
+                        <div class="control-group success">
+                            <label for="sp_ma" class="control-label">Mã sản phẩm</label>
+                            <div class="controls">
+                                <select class="form-control" id="sp_ma" name="sp_ma">
+                                    {% for sanpham in ds_SanPham %}
+                                    <option value="{{ sanpham.sp_ma }}">{{ sanpham.sp_ten }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                            <label for="dh_ma" class="control-label">Mã đơn hàng</label>
+                            <div class="controls">
+                                <select class="form-control" id="dh_ma" name="dh_ma">
+                                    {% for dondathang in ds_DonHang %}
+                                    <option value="{{ dondathang.dh_ma }}">{{ dondathang.dh_ma }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" name="btnSave">Cập nhật</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{# End Nội dung trong block content #}
