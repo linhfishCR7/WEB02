@@ -59,45 +59,22 @@ while($rowKhacHang = mysqli_fetch_array($resultKhachHang, MYSQLI_ASSOC))
 // 3. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
 if(isset($_POST['btnSave'])) 
 {
+
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
     $bl_chude = $_POST['bl_chude'];
-    $gbl_mota_ngania = $_POST['bl_mota_ngan'];
-    $motangan = $_POST['sp_mota_ngan'];
+    $bl_mota_ngan = $_POST['bl_mota_ngan'];
     $bl_noidung = $_POST['bl_noidung'];
     $bl_ngay = $_POST['bl_ngay'];
     $bl_tags = $_POST['bl_tags'];
     $lsp_ma = $_POST['lsp_ma'];
     $kh_ma = $_POST['kh_ma'];
 
-    // if (isset($_FILES['hsp_tentaptin']))
-    // {
-    //     // Đường dẫn để chứa thư mục upload trên ứng dụng web của chúng ta. Các bạn có thể tùy chỉnh theo ý các bạn.
-    //     // Ví dụ: các file upload sẽ được lưu vào thư mục ../../assets/uploads
-    //     $upload_dir = "./../../assets/uploads/";
-
-      
-    //     // Nếu file upload bị lỗi, tức là thuộc tính error > 0
-    //     if ($_FILES['hsp_tentaptin']['error'] > 0)
-    //     {
-    //         echo 'File Upload Bị Lỗi';die;
-    //     }
-    //     else{
-    //         // Tiến hành di chuyển file từ thư mục tạm trên server vào thư mục chúng ta muốn chứa các file uploads
-    //         // Ví dụ: move file từ C:\xampp\tmp\php6091.tmp -> C:/xampp/htdocs/learning.nentang.vn/php/twig/assets/uploads/hoahong.jpg
-    //         $hb_tentaptin = $_FILES['hb_tentaptin']['name'];
-    //         $tentaptin = date('YmdHis') . '_' .$hb_tentaptin; //20200530154922_hoahong.jpg
-            
-    //         move_uploaded_file($_FILES['hb_tentaptin']['tmp_name'], $upload_dir. $tentaptin);
-    //         echo 'File Uploaded';
-    //     }
-    // }
-    // // Câu lệnh INSERT
-    // $sql = "INSERT INTO `blog` (bl_chude, bl_mota_ngan, bl_noidung, bl_ngay, bl_tags,lsp_ma, kh_ma) VALUES ('$bl_chude', '$bl_mota_ngan', '$bl_noidung', '$bl_ngay',  '$bl_tags','$bl_tags',$lsp_ma, $kh_ma);";
+    
+    // Câu lệnh INSERT
+    $sql = "INSERT INTO `blog` (bl_chude,bl_mota_ngan, bl_noidung, bl_ngay, bl_tags,lsp_ma, kh_ma) VALUES ('$bl_chude', '$bl_mota_ngan','$bl_noidung', '$bl_ngay', '$bl_tags',$lsp_ma, $kh_ma);";
     // $sqlhinhanh = "INSERT INTO `hinhblog` (hb_tentaptin) VALUES ('$tentaptin');";
         
-    // // Thực thi INSERT
-    // mysqli_query($conn, $sqlhinhanh);
-    // Thực thi INSERT
+   
     mysqli_query($conn, $sql);
 
     // Đóng kết nối

@@ -58,7 +58,7 @@ EOT;
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelectSanPham = mysqli_query($conn, $sqlSelectSanPham);
-$dataSanPham = [];
+$dataSanPham=[] ;
 while($row = mysqli_fetch_array($resultSelectSanPham, MYSQLI_ASSOC))
 {
     $dataSanPham[] = array(
@@ -75,6 +75,6 @@ $dondathangRow['danhsachsanpham'] = $dataSanPham;
 //dd($dondathangRow);
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/dondathang/in.html.twig`
-echo $twig->render('backend/dondathang/print.html.twig', [
+echo $twig->render('backend/sanpham_dondathang/print.html.twig', [
     'dondathang' => $dondathangRow,
 ]);

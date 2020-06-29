@@ -41,8 +41,8 @@ if (!isset($_POST['btnDatHang'])) {
     // Câu lệnh SELECT
     $sqlSelect = <<<EOT
         SELECT *
-        FROM `khachhang`
-        WHERE kh_email = '$email'
+        FROM `khachhang` kh
+        WHERE kh.kh_email = '$email'
         LIMIT 1;
     EOT;
 
@@ -105,15 +105,13 @@ mysqli_query($conn, $sqlDonHang);
 $last_donhang_id = mysqli_insert_id($conn);
 
 // Duyệt vòng lặp sản phẩm trong giỏ hàng để thực thi câu lệnh INSERT vào table `sanpham_donhang`
-foreach ($_POST['sanphamgiohang'] as $sanpham) {
+foreach($_POST['sanphamgiohang'] as $sanpham) {
     $sp_ma = $sanpham['sp_ma'];
     $gia = $sanpham['gia'];
     $soluong = $sanpham['soluong'];
-
     // Insert Sản phẩm Đơn hàng
     // Câu lệnh INSERT
     $sqlSanPhamDonHang = "INSERT INTO `sanpham_dondathang` (sp_ma, dh_ma, sp_dh_soluong, sp_dh_dongia) VALUES ($sp_ma, $last_donhang_id, $soluong, $gia);";
-
     // Thực thi INSERT
     mysqli_query($conn, $sqlSanPhamDonHang);
 }

@@ -45,7 +45,6 @@ Danh sách Sản phẩm
                             <tr>
                                 <th>Mã bài đăng</th>
                                 <th>Chủ đề</th>
-                                <th>Hình ảnh</th>
                                 <th>Mô tả ngắn</th>
                                 <th>Nội dung</th>
                                 <th>Ngày</th>
@@ -61,9 +60,6 @@ Danh sách Sản phẩm
                                 <tr class="odd gradeX">
                                     <td>{{ blog.bl_ma }}</td>
                                     <td>{{ blog.bl_chude }}</td>
-                                    <td>
-                                        <img src="/assets/uploads/{{ blog.bl_hinhanh }}" class="img-fluid" width="100px"/>
-                                    </td>
                                     <td>{{ blog.bl_mota_ngan }}</td>
                                     <td>{{ blog.bl_noidung }}</td>
                                     <td>{{ blog.bl_ngay }}</td>
@@ -80,6 +76,9 @@ Danh sách Sản phẩm
                                         <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
                                         <a href="delete.php?bl_ma={{ blog.bl_ma }}" class="btn btn-danger">
                                             <span data-feather="delete"></span> Xóa
+                                        </a>
+                                        <a href="/backend/hinhblog/create.php" class="btn btn-primary">
+                                            <span data-feather=""></span> Add ảnh
                                         </a>
                                     </td>
                                 </tr>

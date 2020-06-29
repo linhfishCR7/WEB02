@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Thêm mới Hình Blog
+Thêm mới  Blog
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Thêm mới Hình Blog
+Thêm mới  Blog
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -24,7 +24,7 @@ Thêm mới Hình Blog
         </div>
         <div class="block-content collapse in">
             <div class="span12">
-        <form class="form-horizontal" name="frmhinhblog" id="frmhinhblog" method="post" action="/backend/blog/create.php" enctype="multipart/form-data">
+        <form class="form-horizontal" name="frmhinhblog" id="frmhinhblog" method="post" action="/backend/blog/create.php" >
             <div class="control-group success">
                       <label class="control-label" for="bl_ma">Mã bài đăng</label>
                       <div class="controls">
@@ -36,13 +36,14 @@ Thêm mới Hình Blog
                 <label class="control-label" for="bl_chude">Chủ đề góp ý</label>
                 <div class="controls">
                 <textarea class="input-xlarge textarea" id="bl_chude" name="bl_chude" placeholder="Tên chủ đề góp ý" style="width: 810px; height: 200px"></textarea>
-                <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                {# <input type="text" id="bl_chude" name="bl_chude" placeholder="Tên chủ đề góp ý" ></input> #}
                 </div>
             </div>
             
              <div class="control-group">
                     <label class="control-label" for="bl_mota_ngan">Mô tả ngắn</label>
                     <div class="controls">
+                        {# <input type="text" name="bl_mota_ngan" id="bl_mota_ngan" placeholder="Mô tả ngắn" ></input> #}
                         <textarea class="input-xlarge textarea" name="bl_mota_ngan" id="bl_mota_ngan" placeholder="Mô tả ngắn" style="width: 810px; height: 200px"></textarea>
                     </div>
             </div>
@@ -50,18 +51,21 @@ Thêm mới Hình Blog
             <div class="control-group">
                     <label class="control-label" for="bl_noidung">Nội dung</label>
                     <div class="controls">
+                        {# <input type="text" name="bl_noidung" id="bl_noidung" placeholder="Nội dung" ></input> #}
                         <textarea class="input-xlarge textarea" name="bl_noidung" id="bl_noidung" placeholder="Nội dung" style="width: 810px; height: 200px"></textarea>
                     </div>
             </div>
             <div class="control-group">
                     <label class="control-label" for="bl_ngay">Ngày</label>
                     <div class="controls">
-                        <textarea class="input-xlarge textarea" name="bl_ngay" id="bl_ngay" placeholder="Ngày" style="width: 810px; height: 200px"></textarea>
+                        <input type="date" name="bl_ngay" id="bl_ngay" placeholder="Ngày" ></input>
+                        {# <textarea class="input-xlarge textarea" name="bl_ngay" id="bl_ngay" placeholder="Ngày" style="width: 810px; height: 200px"></textarea> #}
                     </div>
             </div>
             <div class="control-group">
                     <label class="control-label" for="bl_tags">Tags</label>
                     <div class="controls">
+                        {# <input type="text" name="bl_tags" id="bl_tags" placeholder="Tags" ></input> #}
                         <textarea class="input-xlarge textarea" name="bl_tags" id="bl_tags" placeholder="Tags" style="width: 810px; height: 200px"></textarea>
                     </div>
             </div>
@@ -85,12 +89,7 @@ Thêm mới Hình Blog
                 </select>
                 </div>
             </div>
-            <div class="control-group">
-                <label for="hb_tentaptin" class="control-label">Tập tin ảnh</label>
-                <div class="controls">
-                    <input type="file" class="input-file uniform_on" id="hb_tentaptin" name="hb_tentaptin">
-                </div>
-            </div>
+            
             <button class="btn btn-primary" name="btnSave">Cập nhật</button>
         </form>
             </div>

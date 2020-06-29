@@ -39,8 +39,7 @@ Thanh toán
                 {% set subtotal = 0 %}
                 {% for product in giohangdata %}
                 <input type="hidden" name="sanphamgiohang[{{ loop.index }}][sp_ma]" value="{{ product.sp_ma }}" />
-                <input type="hidden" name="sanphamgiohang[{{ loop.index }}][gia]"
-                    value="{{ product.gia }}" />
+                <input type="hidden" name="sanphamgiohang[{{ loop.index }}][gia]" value="{{ product.gia }}" />
                 <input type="hidden" name="sanphamgiohang[{{ loop.index }}][soluong]" value="{{ product.soluong }}" />
 
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -123,7 +122,7 @@ Thanh toán
                 <div class="d-block my-3">
                     {% for payment in hinhthucthanhtoan %}
                     <div class="custom-control custom-radio">
-                        <input id="httt-{{ payment.httt_ma }}" name="id" type="radio" class="custom-control-input"
+                        <input id="httt-{{ payment.httt_ma }}" name="httt_ma" type="radio" class="custom-control-input"
                              value="{{ payment.httt_ma }}">
                         <label class="custom-control-label"
                             for="httt-{{ payment.httt_ma }}">{{ payment.httt_ten }}</label>

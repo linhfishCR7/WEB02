@@ -14,7 +14,7 @@
   {# <link rel="stylesheet" href="/php/twig/assets/backend/css/style-print.css" type="text/css" /> #}
 
   <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
-  <title>Nền tảng - Kiến thức cơ bản về WEB |
+  <title>OGANI |
     In Đơn đặt hàng
   </title>
   <!-- End block title -->
@@ -42,11 +42,9 @@
                 <td align="center"><img src="https://linhfish.xyz/assets/frontend/img/logo.png" width="100px"
                         height="100px" /></td>
                 <td align="center">
-                    <b style="font-size: 2em;">Nền tảng - Hành trang tới Tương lai</b><br />
-                    <small>Cung cấp kiến thức nền tảng về Lập trình, Thiết kế Web, Cơ sở dữ liệu</small><br />
-                    <small>Giúp các bạn có niềm tin, hành trang kiến thức vững vàng trên con đường trở thành Nhà phát
-                        triển
-                        Phần mềm</small>
+                    <b style="font-size: 2em;">OGANI SHOP- THỰC PHẨM TƯƠI </b><br />
+                    <small>Cung cấp thực phẩm tươi ngon và đảm bảo an toàn vệ sinh thực phẩm</small><br />
+                    
                 </td>
             </tr>
         </tbody>
@@ -77,47 +75,7 @@
 
     <!-- Thông tin sản phẩm -->
     <p><i><u>Chi tiết đơn hàng</u></i></p>
-    <table border="1" width="100%" cellspacing="0" cellpadding="5">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Đơn giá</th>
-                <th>Thành tiền</th>
-            </tr>
-        </thead>
-        <tbody>
-                        <tr>
-                <td align="center">1</td>
-                <td>
-                    <b>Samsung Galaxy S3</b><br />
-                    <small><i>Điện thoại</i></small><br />
-                    <small><i>Samsung</i></small>
-                </td>
-                <td align="right">3</td>
-                <td align="right">12000000.00</td>
-                <td align="right">36000000</td>
-            </tr>
-                        <tr>
-                <td align="center">2</td>
-                <td>
-                    <b>Samsung Galaxy Tab 10.1 3G 16G</b><br />
-                    <small><i>Máy tính bảng</i></small><br />
-                    <small><i>Samsung</i></small>
-                </td>
-                <td align="right">2</td>
-                <td align="right">10990000.00</td>
-                <td align="right">21980000</td>
-            </tr>
-                    </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" align="right"><b>Tổng thành tiền</b></td>
-                <td align="right">57,980,000.00 vnđ</td>
-            </tr>
-        </tfoot>
-    </table>
+    
 <table border="1" width="100%" cellspacing="0" cellpadding="5">
                         <thead>
                             <tr>
@@ -130,22 +88,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                     
                                 <tr class="odd gradeX">
                                     <td>{{ dondathang.dh_ma }}</td>
-                                    <td>{{ sanpham.sp_ten }}</td>
+                                    <td>{{ dondathang.sp_ten }}
+                                        <b>{{ dondathang.lsp_ten }}</b><br />
+                                        <small><i>{{ dondathang.sp_ten }}</i></small><br />
                                     <td>{{ dondathang.sp_soluong }}</td>
-                                    <td>{{ sanpham.sp_gia }}</td>
-                                    <td>{{ dondathang.Tongamount}}</td>
-                                   
-                                    
+                                    <td>{{ dondathang.sp_gia }}</td>
+                                    <td></td>
                                 </tr>
-                        
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td colspan="4" align="right"><b>Tổng thành tiền</b></td>
-                                <td align="right">57,980,000.00 vnđ</td>
+                                <td align="right">{{dondathang.Tongamount}}</td>
                             </tr>
                         </tfoot>
                     </table>

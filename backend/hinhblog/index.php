@@ -7,11 +7,9 @@ include_once(__DIR__.'/../../dbconnect.php');
 // 2. Chuẩn bị câu truy vấn $sql
 // Sử dụng HEREDOC của PHP để tạo câu truy vấn SQL với dạng dễ đọc, thân thiện với việc bảo trì code
 $sql = <<<EOT
-SELECT bl.*,kh.kh_ma, lsp.lsp_ma
-FROM `blog` bl
-JOIN `khachhang` kh ON bl.kh_ma=kh.kh_ma
-JOIN `loaisanpham` lsp ON bl.lsp_ma=lsp.lsp_ma
-
+    SELECT *, bl.bl_chude
+    FROM `hinhblog` hb
+    JOIN `blog` bl on hb.bl_ma = bl.bl_ma
 EOT;
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
@@ -23,21 +21,14 @@ $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     // Sử dụng hàm sprintf() để chuẩn bị mẫu câu với các giá trị truyền vào tương ứng từng vị trí placeholder
-   
 
     $data[] = array(
-        'bl_ma' => $row['bl_ma'],
-        'bl_chude' => $row['bl_chude'],
-        'bl_mota_ngan' => $row['bl_mota_ngan'],
-        'bl_noidung' => $row['bl_noidung'],
-        'bl_ngay' => date('d/m/Y H:i:s', strtotime($row['bl_ngay'])),
-        'bl_tags' => $row['bl_tags'],
-        'lsp_ma' => $row['lsp_ma'],
-        'kh_ma' => $row['kh_ma'],
-        
+        'hb_ma' => $row['hb_ma'],
+        'hb_tentaptin' => $row['hb_tentaptin'],
+        'bl_chude' => $row['bl_chude']
+
     );
 }
-
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/hinhsanpham/index.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `ds_hinhsanpham`
-echo $twig->render('backend/blog/index.html.twig', ['ds_blog' => $data] );
+echo $twig->render('backend/hinhblog/index.html.twig', ['ds_hinhblog' => $data] );
