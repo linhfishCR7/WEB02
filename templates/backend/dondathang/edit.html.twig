@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Thêm mới đơn đặt hàng
+Sửa đơn đặt hàng
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Thêm mới đơn đặt hàng
+Sửa đơn đặt hàng
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -20,13 +20,13 @@ Thêm mới đơn đặt hàng
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Form Example</div>
+                <div class="muted pull-left">Sửa đơn đặt hàng</div>
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
                      <form class="form-horizontal" name="frmDonDatHang" id="frmDonDatHang" method="post" action="/backend/dondathang/edit.php?dh_ma={{ dondathang.dh_ma }}">
                       <fieldset>
-                        <legend>Form Horizontal</legend>
+                        <legend>Sửa đơn đặt hàng</legend>
                         <div class="control-group success">
                             <label class="control-label" for="dh_ma">Mã đơn đặt hàng</label>
                             <div class="controls">

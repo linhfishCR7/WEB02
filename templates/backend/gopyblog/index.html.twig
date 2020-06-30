@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Danh sách sản phẩm đơn đặt hàng
+Danh sách Góp ý
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Danh sách sản phẩm đơn đặt hàng
+Danh sách Góp ý
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -22,13 +22,13 @@ Danh sách sản phẩm đơn đặt hàng
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">SẢN PHẨM ĐƠN ĐẶT HÀNG</div>
+                <div class="muted pull-left">GÓP Ý</div>
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
                    <div class="table-toolbar">
                       <div class="btn-group">
-                         <a href="/backend/dondathang/create.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                         <a href="/backend/gopyblog/create.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
                       </div>
                       <div class="btn-group pull-right">
                          <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -43,33 +43,27 @@ Danh sách sản phẩm đơn đặt hàng
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                         <thead>
                             <tr>
-                                <th>Mã sản phẩm</th>
-                                <th>Mã đơn hàng</th>
-                                <th>Số lượng sản phẩm đặt hàng</th>
-                                <th>Đơn giá sản phẩm đặt hàng</th>
+                                <th>Mã góp ý</th>
+                                <th>Nội dung</th>
+                                <th>Mã Blog</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for sanphamdondathang in ds_sanpham_dondathang %}
+                            {% for gopy in ds_gopy %}
                                 <tr class="odd gradeX">
-                                    <td>{{ sanphamdondathang.sp_ma }}</td>
-                                    <td>{{ sanphamdondathang.dh_ma }}</td>
-                                    <td>{{ sanphamdondathang.sp_dh_soluong }}</td>
-                                    <td>{{ sanphamdondathang.sp_dh_dongia }}</td>
-                                    
+                                    <td>{{ gopy.gy_bl_ma }}</td>
+                                    <td>{{ gopy.gy_bl_noidung }}</td>
+                                    <td>{{ gopy.bl_chude }}</td>
                                     <td class="center">
                                         <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `sp_ma` -->
-                                        <a href="edit.php?dh_ma={{ sanphamdondathang.dh_ma }}" class="btn btn-warning">
+                                        <a href="edit.php?gy_bl_ma={{ gopy.gy_bl_ma }}" class="btn btn-warning">
                                             <span data-feather="edit"></span> Sửa
                                         </a>
 
                                         <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                        <a href="delete.php?dh_ma={{ sanphamdondathang.dh_ma }}" class="btn btn-danger">
+                                        <a href="delete.php?gy_bl_ma={{ gopy.gy_bl_ma }}" class="btn btn-danger">
                                             <span data-feather="delete"></span> Xóa
-                                        </a>
-                                        <a href="print.php?dh_ma={{ sanphamdondathang.dh_ma }}" class="btn btn-primary">
-                                            <span data-feather="delete"></span> In
                                         </a>
                                     </td>
                                 </tr>

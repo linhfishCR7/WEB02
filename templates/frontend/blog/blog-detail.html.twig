@@ -1,0 +1,124 @@
+{# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+{# Nội dung trong block title #}
+{% block title %}
+Blog detail
+{% endblock %}
+{# End Nội dung trong block title #}
+{# Nội dung trong block headline #}
+{% block headline %}
+Blog detail
+{% endblock %}
+{# Nội dung trong block content #}
+{% block content %}
+{# End Nội dung trong block headline #}
+
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-details-hero set-bg" data-setbg="/assets/frontend/img/blog/details/details-hero.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog__details__hero__text">
+                    
+                        <h2>The Moment You Need To Remove Garlic From The Menu</h2>
+                                        
+
+                        <ul>
+                        {% for blog in Blog %}
+                            <li>{{blog.kh_ten}} - {{blog.bl_ngay}} - {{blog.sogopy}} Comments</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Hero End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row">
+                  {{ include('/frontend/blog/bar.html.twig') }}
+                <div class="col-lg-8 col-md-7 order-md-1 order-1">
+                {% for blog in Blog %}
+                    <div class="blog__details__text">
+                      <img src="/assets/uploads/{{ blog.hb_tentaptin }}" alt="" style="width:750px;height:630px">
+                        <p>{{ blog.bl_mota_ngan }}</p>
+                        <h3>{{ blog.bl_chude }}</h3>
+                        <p>{{ blog.bl_noidung }}</p>
+                    </div>
+                    <div class="blog__details__content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog__details__author">
+                                    <div class="blog__details__author__pic">
+                                        <img src="/assets/frontend/img/blog/details/details-author.jpg" alt="">
+                                    </div>
+                                    <div class="blog__details__author__text">
+                                        <h6>{{ blog.kh_ten }}</h6>
+                                        <span>Vai trò: {{ blog.kh_quantri }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="blog__details__widget">
+                                    <ul>
+                                        <li><span>Categories:</span> {{ blog.lsp_ten }}</li>
+                                        <li><span>Tags:</span> All,{{ blog.bl_tags }}</li>
+                                    </ul>
+                                    <div class="blog__details__social">
+                                        <a href="{{ blog.kh_facebook }}"><i class="fa fa-facebook"></i></a>
+                                        <a href="{{ blog.kh_twitter}}"><i class="fa fa-twitter"></i></a>
+                                        <a href="{{ blog.kh_email }}"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Related Blog Section Begin -->
+    <section class="related-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related-blog-title">
+                        <h2>Post You May Like</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                {% for danhsachblog in danhsachBlog %}
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="blog__item">
+                            <div class="blog__item__pic">
+                                <img src="/assets/uploads/{{ danhsachblog.hb_tentaptin }}" alt="">
+                            </div>
+                            <div class="blog__item__text">
+                                <ul>
+                                    <li><i class="fa fa-calendar-o"></i> {{ danhsachblog.bl_ngay }}</li>
+                                    
+                                    <li><i class="fa fa-comment-o"></i>{{danhsachblog.sogopy}}</li>
+
+                                </ul>
+                                <h5><a href="/frontend/blog/blog-detail.php?bl_ma={{ danhsachblog.bl_ma }}">{{ danhsachblog.bl_chude }}</a></h5>
+                                <p>{{ danhsachblog.bl_mota_ngan }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Related Blog Section End -->
+
+    {% endblock %}

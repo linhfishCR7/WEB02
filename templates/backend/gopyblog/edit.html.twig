@@ -1,0 +1,72 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Sửa Góp ý Blog
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Sửa Góp ý Blog
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="span9" id="content">
+    <div class="row-fluid">
+        <!-- block -->
+        <div class="block">
+            <div class="navbar navbar-inner block-header">
+                <div class="muted pull-left">Sửa Góp ý Blog</div>
+            </div>
+            <div class="block-content collapse in">
+                <div class="span12">
+                     <form class="form-horizontal" name="frmGopY" id="frmGopY" method="post" action="/backend/gopyblog/edit.php?gy_bl_ma={{ gopy.gy_bl_ma }}">
+                      <fieldset>
+                        <legend>Sửa Góp ý Blog</legend>
+                      
+                        <div class="control-group success">
+                            <label class="control-label" for="gy_bl_ma">Mã góp ý</label>
+                            <div class="controls">
+                            <input type="text" id="gy_bl_ma" name="gy_bl_ma" placeholder="Mã góp ý"  readonly value="{{ gopy.gy_bl_ma }}">
+                            <!-- <span class="help-inline">Woohoo!</span> -->
+                            </div>
+                        </div>
+
+                        <div class="control-group warning">
+                            <label class="control-label" for="gy_bl_noidung">Nội dung</label>
+                            <div class="controls">
+                            <input type="text" id="gy_bl_noidung" name="gy_bl_noidung" placeholder="Nội dung" value="{{ gopy.gy_bl_noidung }}">
+                            <!-- <span class="help-inline">Something may have gone wrong</span> -->
+                            </div>
+                        </div>
+
+                        
+                        <div class="control-group success">
+                            <label for="bl_ma" class="control-label">Mã Blog</label>
+                            <div class="controls">
+                                <select class="form-control" id="bl_ma" name="bl_ma">
+                                  
+                                    {% for gopY in ds_gopy %}
+                                        {% if gopY.bl_ma == gopy.bl_ma %}
+                                            <option value="{{ gopY.bl_ma }}" selected>{{ gopY.bl_chude }}</option>
+                                        {% else %}
+                                            <option value="{{ gopY.bl_ma }}">{{ gopY.bl_chude}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" name="btnSave">Cập nhật</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{# End Nội dung trong block content #}

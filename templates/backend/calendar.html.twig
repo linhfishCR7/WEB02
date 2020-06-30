@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Thêm mới Loại sản phẩm
+Lịch khuyến mãi
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Thêm mới Loại sản phẩm
+Lịch khuyến mãi
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -21,7 +21,7 @@ Thêm mới Loại sản phẩm
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Calendar</div>
+                                <div class="muted pull-left">Lịch khuyến mãi</div>
                                 <div class="pull-right">
                                     <!-- <span class="badge badge-warning">View More</span> -->
 
@@ -30,7 +30,7 @@ Thêm mới Loại sản phẩm
                             <div class="block-content collapse in">
                                 <div class="span2">
                                     <div id='external-events'>
-                                    <h4>Draggable Events</h4>
+                                    <h4>Events</h4>
                                     {% for khuyenmai in ds_khuyenmai %}
                                         <div class='external-event'>{{ khuyenmai.km_ten }}</div>
                                     {% endfor %}

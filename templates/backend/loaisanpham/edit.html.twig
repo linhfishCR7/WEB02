@@ -3,13 +3,13 @@
 
 {# Nội dung trong block title #}
 {% block title %}
-Thêm mới Loại sản phẩm
+Sửa Loại sản phẩm
 {% endblock %}
 {# End Nội dung trong block title #}
 
 {# Nội dung trong block headline #}
 {% block headline %}
-Thêm mới Loại sản phẩm
+Sửa Loại sản phẩm
 {% endblock %}
 {# End Nội dung trong block headline #}
 
@@ -21,13 +21,13 @@ Thêm mới Loại sản phẩm
     <!-- block -->
     <div class="block">
         <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Form Example</div>
+            <div class="muted pull-left">Sửa Loại sản phẩm</div>
         </div>
         <div class="block-content collapse in">
             <div class="span12">
                  <form class="form-horizontal" name="frmLoaiSanPham" id="frmLoaiSanPham" method="post" action="/backend/loaisanpham/edit.php?lsp_ma={{ loaisanpham.lsp_ma }}">
                   <fieldset>
-                    <legend>Form Horizontal</legend>
+                    <legend>Sửa Loại sản phẩm</legend>
                     <div class="control-group success">
                         <label class="control-label" for="inputError">Mã loại sản phẩm</label>
                         <div class="controls">
